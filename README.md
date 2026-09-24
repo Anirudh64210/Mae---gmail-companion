@@ -2,9 +2,23 @@
 
 Mae is a Chrome extension for Gmail that checks your reply when you press Send and tells you if you left a question unanswered.
 
-## The problem
+## Why this exists
 
-Quick replies are common, and people often answer two of the three things they were asked. The sender then has to write again, and everything slips by a day. Nobody does this on purpose. A loaded email arrives, you answer the part you have an answer for, and the rest falls out of your head between reading and sending.
+Nobody skips a question on purpose. Email just makes it easy.
+
+Researchers have been describing the same pattern since the nineties. The inbox turns into a to-do list and an external memory, and the volume outruns what a person can hold in their head. Whittaker and Sidner called it email overload in 1996 [1]. A decade later, Dabbish and Kraut found that the more email people received, the more overloaded and strained they felt [2]. When Dabbish and colleagues watched how people handled new messages, they replied to roughly a third of them and left half sitting in the inbox, often meaning to come back later [3].
+
+The questions inside those messages do not fare any better. In a survey of close to a thousand information workers, 80 percent said they had answered a question by email that they had already answered before, and more than a third of the time people could not clearly remember the message that held the answer, even though they knew it was in there somewhere [4]. And the more you ask in one email, the less likely you are to hear back at all. Boomerang's analysis of forty million emails found that a message with three questions was 20 percent more likely to get a reply than one with eight or more [5].
+
+None of this is carelessness. A loaded email arrives, you answer the part you have an answer for, and the rest quietly drops out between reading and sending. The sender writes again, and everything slips by a day.
+
+Mae exists for that one moment, right before Send, when a second look costs almost nothing.
+
+1. Whittaker and Sidner, "Email overload: exploring personal information management of email", CHI 1996.
+2. Dabbish and Kraut, "Email overload at work: an analysis of factors associated with email strain", CSCW 2006. https://www.researchgate.net/publication/220879068
+3. Dabbish, Kraut, Fussell and Kiesler, "Understanding email use: predicting action on a message", CHI 2005. https://sfussell.hci.cornell.edu/pubs/Manuscripts/Dabbish_CHI2005.pdf
+4. Yang, Awadallah, Khabsa, Wang and Wang, "Characterizing and supporting question answering in human-to-human communication", SIGIR 2018. https://www.microsoft.com/en-us/research/wp-content/uploads/2018/04/EmailQA_SIGIR18.pdf
+5. Boomerang, "7 tips for getting more responses to your emails (with data)", 2016. https://blog.boomerangapp.com/2016/02/7-tips-for-getting-more-responses-to-your-emails-with-data/
 
 ## What Mae does
 
