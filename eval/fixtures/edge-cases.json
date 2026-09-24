@@ -1,0 +1,144 @@
+[
+  {
+    "id": "edge-001",
+    "domain": "edge-cases",
+    "tags": ["rhetorical", "none-asked"],
+    "person": "Chris",
+    "message": "Does that make sense? Hopefully it does. Let me know if anything is unclear, otherwise I'll proceed on Monday.",
+    "draft": "Makes sense, go ahead.",
+    "asks": [],
+    "note": "'Does that make sense?' followed by 'otherwise I'll proceed' is a courtesy check. A thumbs up covers it; a reply with no acknowledgement would also be fine."
+  },
+  {
+    "id": "edge-002",
+    "domain": "edge-cases",
+    "tags": ["rhetorical", "single-ask", "mentioned-not-answered"],
+    "person": "Chris",
+    "message": "Does that make sense? If so, can you sign off on the budget so I can start ordering?",
+    "draft": "Makes sense. A couple of the line items look high, can you break down the hardware costs?",
+    "asks": [
+      { "q": "If so, can you sign off on the budget so I can start ordering?", "missed": true }
+    ],
+    "note": "Neither signs off nor declines, asks something new instead."
+  },
+  {
+    "id": "edge-003",
+    "domain": "edge-cases",
+    "tags": ["single-ask", "all-answered", "paraphrased-answer"],
+    "person": "Chris",
+    "message": "If so, can you sign off on the budget so I can start ordering?",
+    "draft": "Approved. Go ahead.",
+    "asks": [
+      { "q": "If so, can you sign off on the budget so I can start ordering?", "missed": false }
+    ],
+    "note": "Sign-off given with different words."
+  },
+  {
+    "id": "edge-004",
+    "domain": "edge-cases",
+    "tags": ["one-liner", "single-ask", "mentioned-not-answered"],
+    "person": "Ali",
+    "message": "ETA?",
+    "draft": "Working on it.",
+    "asks": [
+      { "q": "ETA?", "missed": true }
+    ],
+    "note": "The shortest possible question. Working on it is not a time."
+  },
+  {
+    "id": "edge-005",
+    "domain": "edge-cases",
+    "tags": ["one-liner", "single-ask", "all-answered"],
+    "person": "Ali",
+    "message": "ETA?",
+    "draft": "Tomorrow noon.",
+    "asks": [
+      { "q": "ETA?", "missed": false }
+    ],
+    "note": "Answered."
+  },
+  {
+    "id": "edge-006",
+    "domain": "edge-cases",
+    "tags": ["multi-ask", "all-answered", "long-message", "numbers-dates"],
+    "person": "Ravi",
+    "message": "Long one, sorry. We're consolidating the two studios into one office at 40 Bridge Street from 1 August. Parking is limited so we're offering a cycle-to-work scheme and a travel allowance of $60 a month. For planning purposes: will you need a desk full time, or are you happy hot-desking three days a week? Do you want to opt into the cycle scheme? And are there any accessibility requirements we should plan for in the new fit-out? I know it's a lot of questions, but the architect needs answers by the 20th.",
+    "draft": "Not a problem, Ravi. Hot-desking three days is fine for me. I'd like to opt into the cycle scheme. No accessibility requirements on my side.",
+    "asks": [
+      { "q": "For planning purposes: will you need a desk full time, or are you happy hot-desking three days a week?", "missed": false },
+      { "q": "Do you want to opt into the cycle scheme?", "missed": false },
+      { "q": "And are there any accessibility requirements we should plan for in the new fit-out?", "missed": false }
+    ],
+    "note": "'I know it's a lot of questions' is not a question. All three real asks answered."
+  },
+  {
+    "id": "edge-007",
+    "domain": "edge-cases",
+    "tags": ["single-ask", "mentioned-not-answered", "embedded-question"],
+    "person": "Ravi",
+    "message": "I wonder if you've had time to look at the lease? The landlord is chasing me for a yes or no.",
+    "draft": "The lease is on my list, it's been a busy week with the studio move.",
+    "asks": [
+      { "q": "I wonder if you've had time to look at the lease?", "missed": true }
+    ],
+    "note": "An indirect question that really asks for a yes or no on the lease."
+  },
+  {
+    "id": "edge-008",
+    "domain": "edge-cases",
+    "tags": ["none-asked", "quoted-history"],
+    "person": "Ravi",
+    "message": "Perfect, thanks.\n\nOn Wed, 3 Jun 2026 at 15:02, Alex <a@example.com> wrote:\n> Yes to the lease. Can you send the landlord's bank details?\n>\n> On Tue, 2 Jun 2026, Ravi wrote:\n>> Have you had time to look at the lease?",
+    "draft": "Great.",
+    "asks": [],
+    "note": "Every question is in quoted history."
+  },
+  {
+    "id": "edge-009",
+    "domain": "edge-cases",
+    "tags": ["multi-ask", "partial", "yes-no"],
+    "person": "Tara",
+    "message": "Quick yes or no on two things: can we use your logo on the sponsors page, and can we tag your company on social?",
+    "draft": "Yes to the logo.",
+    "asks": [
+      { "q": "Quick yes or no on two things: can we use your logo on the sponsors page, and can we tag your company on social?", "missed": true }
+    ],
+    "note": "Two yes/no asks in one sentence, one answered. The sentence is still partly missed."
+  },
+  {
+    "id": "edge-010",
+    "domain": "edge-cases",
+    "tags": ["multi-ask", "all-answered", "yes-no"],
+    "person": "Tara",
+    "message": "Quick yes or no on two things: can we use your logo on the sponsors page, and can we tag your company on social?",
+    "draft": "Yes and yes.",
+    "asks": [
+      { "q": "Quick yes or no on two things: can we use your logo on the sponsors page, and can we tag your company on social?", "missed": false }
+    ],
+    "note": "Both answered in three words."
+  },
+  {
+    "id": "edge-011",
+    "domain": "edge-cases",
+    "tags": ["single-ask", "signature-noise", "mentioned-not-answered"],
+    "person": "Ola",
+    "message": "Can you send the final artwork as a PDF?\n\nThanks,\nOla\n\nOla Berg | Print Manager | Nordic Print\nwww.example-print.no | +47 22 00 00 00 | Ask me about our recycled stock!",
+    "draft": "Thanks Ola, I'll get the artwork over to you.",
+    "asks": [
+      { "q": "Can you send the final artwork as a PDF?", "missed": true }
+    ],
+    "note": "The signature line 'Ask me about our recycled stock!' must not become an ask. The PDF format was not addressed, and no artwork was sent; a promise is not delivery."
+  },
+  {
+    "id": "edge-012",
+    "domain": "edge-cases",
+    "tags": ["single-ask", "all-answered"],
+    "person": "Ola",
+    "message": "Can you send the final artwork as a PDF?",
+    "draft": "PDF attached, print-ready with 3mm bleed.",
+    "asks": [
+      { "q": "Can you send the final artwork as a PDF?", "missed": false }
+    ],
+    "note": "Delivered."
+  }
+]

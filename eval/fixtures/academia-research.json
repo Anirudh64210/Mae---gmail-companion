@@ -1,0 +1,50 @@
+[
+  {
+    "id": "acad-001",
+    "domain": "academia-research",
+    "tags": ["multi-ask", "partial", "long-message"],
+    "person": "Dr Huang",
+    "message": "Thanks for sending the revised manuscript. The reviewers' main concern was the sample size in study 2. Can you add a power analysis to the supplement? I also noticed figure 4 uses a different colour scale from the others, could you make them consistent? Finally, do you agree with dropping the third experiment, or would you rather move it to the appendix? The resubmission deadline is 30 June.",
+    "draft": "Thanks Dr Huang. I've added the power analysis as Supplement S3 and unified the colour scales across all figures.",
+    "asks": [
+      { "q": "Can you add a power analysis to the supplement?", "missed": false },
+      { "q": "I also noticed figure 4 uses a different colour scale from the others, could you make them consistent?", "missed": false },
+      { "q": "Finally, do you agree with dropping the third experiment, or would you rather move it to the appendix?", "missed": true }
+    ],
+    "note": "Two edits done, the decision on experiment three is missing."
+  },
+  {
+    "id": "acad-002",
+    "domain": "academia-research",
+    "tags": ["single-ask", "all-answered", "paraphrased-answer"],
+    "person": "Dr Huang",
+    "message": "Do you agree with dropping the third experiment, or would you rather move it to the appendix?",
+    "draft": "Appendix. It's weaker but it answers a likely reviewer question.",
+    "asks": [
+      { "q": "Do you agree with dropping the third experiment, or would you rather move it to the appendix?", "missed": false }
+    ],
+    "note": "One-word decision plus reason."
+  },
+  {
+    "id": "acad-003",
+    "domain": "academia-research",
+    "tags": ["single-ask", "deferral"],
+    "person": "Yusuf",
+    "message": "Would you be willing to serve as an external examiner for my PhD viva in September? The thesis is about 220 pages.",
+    "draft": "Congratulations on getting to the viva stage. September is looking busy, let me check my calendar and get back to you next week.",
+    "asks": [
+      { "q": "Would you be willing to serve as an external examiner for my PhD viva in September?", "missed": true }
+    ],
+    "note": "No answer yet."
+  },
+  {
+    "id": "acad-004",
+    "domain": "academia-research",
+    "tags": ["none-asked", "forwarded"],
+    "person": "Yusuf",
+    "message": "FYI, the call for papers below might interest you.\n\n---------- Forwarded message ----------\nFrom: CHI 2027 <chairs@example.org>\nSubject: Call for Papers\n\nSubmissions open 1 August. Would you like to submit? Deadline 15 September. Do you have questions? Email the chairs.",
+    "draft": "Thanks Yusuf, I'll take a look.",
+    "asks": [],
+    "note": "Questions inside a forwarded announcement are not the sender's asks."
+  }
+]

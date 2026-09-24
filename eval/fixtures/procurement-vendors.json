@@ -1,0 +1,50 @@
+[
+  {
+    "id": "proc-001",
+    "domain": "procurement-vendors",
+    "tags": ["multi-ask", "partial", "numbers-dates"],
+    "person": "Wei",
+    "message": "Quote attached for 500 units at $3.20 each. Lead time is six weeks from PO. Can you confirm the delivery address is still the Leeds warehouse? Do you need the units individually boxed? And is a 30% deposit acceptable?",
+    "draft": "Leeds warehouse is correct. Individual boxing please, our retail partner requires it.",
+    "asks": [
+      { "q": "Can you confirm the delivery address is still the Leeds warehouse?", "missed": false },
+      { "q": "Do you need the units individually boxed?", "missed": false },
+      { "q": "And is a 30% deposit acceptable?", "missed": true }
+    ],
+    "note": "Deposit unanswered."
+  },
+  {
+    "id": "proc-002",
+    "domain": "procurement-vendors",
+    "tags": ["single-ask", "decline-is-answer", "numbers-dates"],
+    "person": "Wei",
+    "message": "Is a 30% deposit acceptable?",
+    "draft": "We can do 20% up front and the balance on delivery, that's our standard for first orders.",
+    "asks": [
+      { "q": "Is a 30% deposit acceptable?", "missed": false }
+    ],
+    "note": "A counter-offer answers the question."
+  },
+  {
+    "id": "proc-003",
+    "domain": "procurement-vendors",
+    "tags": ["single-ask", "deferral"],
+    "person": "Aisha",
+    "message": "Our contract renews on 1 July. Will you be renewing, and if so, at the same volume?",
+    "draft": "Thanks for the heads-up on the renewal. We're reviewing all supplier contracts this quarter.",
+    "asks": [
+      { "q": "Will you be renewing, and if so, at the same volume?", "missed": true }
+    ],
+    "note": "No decision given."
+  },
+  {
+    "id": "proc-004",
+    "domain": "procurement-vendors",
+    "tags": ["none-asked", "signature-noise"],
+    "person": "Aisha",
+    "message": "Shipment 4471 left the warehouse this morning, tracking number 1Z999AA10123456784. ETA Thursday.\n\nAisha Rahman\nAccount Manager\nwww.example-supply.com | +1 (555) 010-2233",
+    "draft": "Thanks Aisha, noted.",
+    "asks": [],
+    "note": "A dispatch notice with a signature block."
+  }
+]

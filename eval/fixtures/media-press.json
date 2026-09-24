@@ -1,0 +1,50 @@
+[
+  {
+    "id": "press-001",
+    "domain": "media-press",
+    "tags": ["multi-ask", "partial", "numbers-dates"],
+    "person": "Jordan",
+    "message": "Writing a piece on indie mail tools for Friday. Could I get a quote from you on why you built this? How many users do you have now? And is there a press image I can use, ideally landscape?",
+    "draft": "Sure. Quote: \"I built it because I kept sending emails that answered half of what I was asked.\" A landscape image is attached.",
+    "asks": [
+      { "q": "Could I get a quote from you on why you built this?", "missed": false },
+      { "q": "How many users do you have now?", "missed": true },
+      { "q": "And is there a press image I can use, ideally landscape?", "missed": false }
+    ],
+    "note": "User count skipped."
+  },
+  {
+    "id": "press-002",
+    "domain": "media-press",
+    "tags": ["single-ask", "decline-is-answer"],
+    "person": "Jordan",
+    "message": "How many users do you have now?",
+    "draft": "We're not sharing numbers yet, but it's in the low thousands.",
+    "asks": [
+      { "q": "How many users do you have now?", "missed": false }
+    ],
+    "note": "Partial disclosure is still an answer."
+  },
+  {
+    "id": "press-003",
+    "domain": "media-press",
+    "tags": ["single-ask", "polite-request-no-qmark", "deferral"],
+    "person": "Alex",
+    "message": "We'd love to have you on the podcast. Send over a few dates that work in June and we'll lock one in.",
+    "draft": "Thanks Alex, I'd love to. June is a bit up in the air right now.",
+    "asks": [
+      { "q": "Send over a few dates that work in June and we'll lock one in.", "missed": true }
+    ],
+    "note": "No dates offered."
+  },
+  {
+    "id": "press-004",
+    "domain": "media-press",
+    "tags": ["none-asked"],
+    "person": "Alex",
+    "message": "Episode is live. Thanks again for coming on, it was a great conversation.",
+    "draft": "Thanks for having me, I enjoyed it.",
+    "asks": [],
+    "note": "No ask."
+  }
+]

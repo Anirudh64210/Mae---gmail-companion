@@ -1,0 +1,51 @@
+[
+  {
+    "id": "events-001",
+    "domain": "events",
+    "tags": ["multi-ask", "partial", "list-of-asks"],
+    "person": "Sophie",
+    "message": "For the launch party on the 9th I need from you:\n- final headcount\n- any dietary requirements\n- whether you want the AV package (projector and mics)\nCan you get these to me by Wednesday?",
+    "draft": "Headcount is 46. Two vegetarians and one gluten-free, no other requirements.",
+    "asks": [
+      { "q": "final headcount", "missed": false },
+      { "q": "any dietary requirements", "missed": false },
+      { "q": "whether you want the AV package (projector and mics)", "missed": true },
+      { "q": "Can you get these to me by Wednesday?", "missed": false }
+    ],
+    "note": "Bullet asks. AV decision missing. Replying with the info addresses the deadline."
+  },
+  {
+    "id": "events-002",
+    "domain": "events",
+    "tags": ["single-ask", "all-answered", "yes-no"],
+    "person": "Sophie",
+    "message": "Do you want the AV package?",
+    "draft": "Yes please, projector and two mics.",
+    "asks": [
+      { "q": "Do you want the AV package?", "missed": false }
+    ],
+    "note": "Yes with detail."
+  },
+  {
+    "id": "events-003",
+    "domain": "events",
+    "tags": ["single-ask", "deferral", "numbers-dates"],
+    "person": "Marco",
+    "message": "The venue needs a 50% deposit ($2,400) to hold the date. Can you approve that today?",
+    "draft": "Let me run it past the finance team and I'll let you know.",
+    "asks": [
+      { "q": "Can you approve that today?", "missed": true }
+    ],
+    "note": "Not approved, not declined."
+  },
+  {
+    "id": "events-004",
+    "domain": "events",
+    "tags": ["none-asked"],
+    "person": "Marco",
+    "message": "Deposit received, the date is confirmed. See you on the 9th.",
+    "draft": "Wonderful, thanks Marco.",
+    "asks": [],
+    "note": "Confirmation only."
+  }
+]

@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Mae Sprite Sheet</title>
+<style>body{margin:0;background:#ECEFED;padding:16px;font:12px ui-monospace,Menlo,monospace;color:#56605C}canvas{image-rendering:pixelated;display:block}</style>
+</head><body>
+<canvas id="c"></canvas>
+<script src="../mae-sprite.js"></script>
+<script>
+var FR=8,S=6,M=MAE.MOODS,c=document.getElementById('c'),x=c.getContext('2d');
+c.width=MAE.W*FR;c.height=MAE.H*M.length;c.style.width=(c.width*S)+'px';c.style.height=(c.height*S)+'px';
+M.forEach(function(m,r){for(var f=0;f<FR;f++){var g=MAE.build(m,f*2);for(var y=0;y<MAE.H;y++)for(var i=0;i<MAE.W;i++){var col=g.c[y][i];if(col){x.fillStyle=col;x.fillRect(f*MAE.W+i,r*MAE.H+y,1,1);}}}});
+</script></body></html>

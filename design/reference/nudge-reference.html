@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nudge Reference</title>
+<style>
+  :root{--bg:#F5F6F6;--ink:#121715;--muted:#6D7773;--line:#E1E5E3}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 "Google Sans",Roboto,"Helvetica Neue",Arial,sans-serif;padding:32px 24px 64px}
+  h1{font-size:22px;margin:0 0 4px}
+  p.sub{color:var(--muted);margin:0 0 28px}
+  .grid{display:grid;grid-template-columns:minmax(0,640px);gap:28px}
+  .panel{display:flex;flex-direction:column;gap:8px}
+  .label{font:500 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .card{height:150px;background:#fff;border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;justify-content:flex-end}
+  .toolbar{display:flex;align-items:center;gap:14px;padding:10px 12px 10px 16px;border-top:1px solid var(--line)}
+  .fmt{color:var(--muted);font:12px ui-monospace,Menlo,monospace;letter-spacing:.2em;margin-right:auto}
+  .send{border:0;border-radius:18px;background:#0B57D0;color:#fff;font:500 14px/20px "Google Sans",Roboto,Arial,sans-serif;padding:8px 22px;cursor:pointer}
+  .live{margin-top:48px;max-width:620px}
+  .compose{background:#fff;border:1px solid var(--line);border-radius:10px;margin-top:10px}
+  .thread{padding:16px 18px;border-bottom:1px solid var(--line);color:#3A4340}
+  .thread b{color:var(--ink)}
+  .draft{padding:16px 18px 72px;white-space:pre-wrap;min-height:150px}
+  .row{display:flex;gap:8px;margin-top:12px}
+  .row button{border:1px solid #CFD5D2;background:#fff;border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+</style>
+</head>
+<body>
+  <h1>Nudge reference</h1>
+  <p class="sub">Design-locked states rendered from design/nudge.js and design/mae-sprite.js. Add <code>?freeze</code> to the URL for the visual baseline.</p>
+  <div class="grid" id="grid"></div>
+
+  <section class="live">
+    <div class="label">Live flow</div>
+    <div class="compose">
+      <div class="thread" id="thread"><b>Maya Chen</b><br>Great call yesterday. A few things before we lock the project:<br><span id="s1">Can you send the signed contract by Thursday?</span><br><span id="s2">What's your day rate for the extra design sprint?</span><br><span id="s3">Could we move kickoff to Monday the 14th?</span></div>
+      <div class="draft" id="draft">Hi Maya,
+
+Thanks, great talking yesterday! Monday the 14th works for kickoff, and I'll send the signed contract by Thursday.
+
+Best,
+Alex</div>
+      <div class="toolbar"><span class="fmt">B I &#8599;</span><button class="send" id="liveSend" type="button">Send</button></div>
+    </div>
+    <div class="row"><button id="intro" type="button">Show intro</button><button id="reset" type="button">Reset</button><button id="theme" type="button">Toggle dark pill</button></div>
+  </section>
+
+<script src="../mae-sprite.js"></script>
+<script src="../nudge.js"></script>
+<script>
+(function(){
+  var freeze = /[?&]freeze\b/.test(location.search) ? 1 : null;
+  var STATES = [
+    ['hidden (default)', []],
+    ['intro (once, after install)', [['intro']]],
+    ['unimpressed \u00b7 1 missed', [['unimpressed', {person:'Maya', missed:["What's your day rate for the extra design sprint?"], total:3}]]],
+    ['unimpressed \u00b7 2 missed', [['unimpressed', {person:'Maya', missed:["What's your day rate for the extra design sprint?", 'Could we move kickoff to Monday the 14th?'], total:3}]]],
+    ['waiting (after Answer, while you type)', [['unimpressed', {person:'Maya', missed:['x'], total:3}], ['waiting']]],
+    ['sealed', [['sealed']]],
+    ['shrug', [['shrug']]]
+  ];
+  var grid = document.getElementById('grid');
+  STATES.forEach(function(s){
+    var p = document.createElement('div'); p.className='panel';
+    p.innerHTML = '<div class="label">'+s[0]+'</div><div class="card"><div class="toolbar"><span class="fmt">B I &#8599;</span><button class="send" type="button" tabindex="-1">Send</button></div></div>';
+    grid.appendChild(p);
+    var n = DYAANudge.createNudge({anchor:p.querySelector('.send'), freeze:freeze, autoHide:false});
+    s[1].forEach(function(step){ n.setState(step[0], step[1]); });
+  });
+
+  // Live flow: exercises states, highlight API and events exactly as the extension will.
+  var send = document.getElementById('liveSend');
+  var live = DYAANudge.createNudge({anchor:send});
+  var fixed = false, dark = false;
+  function rangeOf(id){ var r=document.createRange(); r.selectNodeContents(document.getElementById(id)); return r; }
+  send.addEventListener('click', function(){
+    live.setState('checking');
+    setTimeout(function(){
+      if (!fixed){ live.setState('unimpressed', {person:'Maya', missed:["What's your day rate for the extra design sprint?"], total:3}); DYAANudge.highlightRanges([rangeOf('s2')]); }
+      else { DYAANudge.highlightRanges([]); live.setState('sealed'); }
+    }, 300);
+  });
+  live.on('answer', function(){
+    var d=document.getElementById('draft');
+    d.textContent = d.textContent.replace('Thursday.', 'Thursday. For the extra sprint, my day rate is $900.');
+    fixed = true; live.setState('waiting');   // Mae stays out holding the envelope; underline stays until the next Send
+  });
+  live.on('sendAnyway', function(){ DYAANudge.highlightRanges([]); live.setState('shrug'); });
+  live.on('dismiss', function(){ live.setState('hidden'); });
+  live.on('introDone', function(){ live.setState('hidden'); });
+  document.getElementById('intro').addEventListener('click', function(){ live.setState('intro'); });
+  document.getElementById('reset').addEventListener('click', function(){ location.reload(); });
+  document.getElementById('theme').addEventListener('click', function(){ dark=!dark; live.setTheme(dark?'dark':'light'); });
+})();
+</script>
+</body>
+</html>

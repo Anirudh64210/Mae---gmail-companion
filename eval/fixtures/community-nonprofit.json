@@ -1,0 +1,49 @@
+[
+  {
+    "id": "nonprofit-001",
+    "domain": "community-nonprofit",
+    "tags": ["multi-ask", "partial", "cc-others"],
+    "person": "Grace",
+    "message": "Hi all, planning the food bank drive for the 12th. Alex, can you bring the folding tables again? And does anyone have a van we could borrow for the afternoon? Please reply by Thursday so I can finalise.",
+    "draft": "Happy to bring the tables, I'll drop them off at 9.",
+    "asks": [
+      { "q": "Alex, can you bring the folding tables again?", "missed": false },
+      { "q": "And does anyone have a van we could borrow for the afternoon?", "missed": true }
+    ],
+    "note": "The group question about a van goes unanswered by this replier. Silence could be read as no, but the sender asked everyone. Labelled missed."
+  },
+  {
+    "id": "nonprofit-002",
+    "domain": "community-nonprofit",
+    "tags": ["single-ask", "decline-is-answer"],
+    "person": "Grace",
+    "message": "Does anyone have a van we could borrow for the afternoon?",
+    "draft": "No van here, sorry. My brother-in-law might, I'll ask.",
+    "asks": [
+      { "q": "Does anyone have a van we could borrow for the afternoon?", "missed": false }
+    ],
+    "note": "A no counts."
+  },
+  {
+    "id": "nonprofit-003",
+    "domain": "community-nonprofit",
+    "tags": ["single-ask", "numbers-dates", "mentioned-not-answered"],
+    "person": "Pastor Mike",
+    "message": "Thank you for offering to sponsor the youth camp. How much would you like to contribute? Anything from $50 to $500 helps, and we'll list sponsors in the programme.",
+    "draft": "Glad to help. Please do list us in the programme as Alex Studio.",
+    "asks": [
+      { "q": "How much would you like to contribute?", "missed": true }
+    ],
+    "note": "Amount not given."
+  },
+  {
+    "id": "nonprofit-004",
+    "domain": "community-nonprofit",
+    "tags": ["none-asked"],
+    "person": "Pastor Mike",
+    "message": "Thank you for the $250 sponsorship. Receipt attached for your records. The camp starts 8 July.",
+    "draft": "You're very welcome.",
+    "asks": [],
+    "note": "Receipt."
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "id": "client-001",
+    "domain": "client-services",
+    "tags": ["multi-ask", "partial", "numbers-dates"],
+    "person": "Maya",
+    "message": "Great call yesterday. A few things before we lock the project:\nCan you send the signed contract by Thursday?\nWhat's your day rate for the extra design sprint?\nCould we move kickoff to Monday the 14th?",
+    "draft": "Hi Maya,\n\nThanks, great talking yesterday. Monday the 14th works for kickoff, and I'll send the signed contract by Thursday.\n\nBest,\nAlex",
+    "asks": [
+      { "q": "Can you send the signed contract by Thursday?", "missed": false },
+      { "q": "What's your day rate for the extra design sprint?", "missed": true },
+      { "q": "Could we move kickoff to Monday the 14th?", "missed": false }
+    ],
+    "note": "The reference case. Two of three answered, the rate is missing."
+  },
+  {
+    "id": "client-002",
+    "domain": "client-services",
+    "tags": ["multi-ask", "all-answered", "paraphrased-answer"],
+    "person": "Maya",
+    "message": "Two quick ones. Are you free for a review on Friday afternoon? And is the new logo file in the shared folder yet?",
+    "draft": "Friday after 2 is good for me. The logo went into the folder this morning, under Brand/Final.",
+    "asks": [
+      { "q": "Are you free for a review on Friday afternoon?", "missed": false },
+      { "q": "And is the new logo file in the shared folder yet?", "missed": false }
+    ],
+    "note": "Both answered without reusing the question's words."
+  },
+  {
+    "id": "client-003",
+    "domain": "client-services",
+    "tags": ["single-ask", "mentioned-not-answered", "deferral"],
+    "person": "Daniel",
+    "message": "Thanks for the mockups. Before I show the board, can you tell me the total cost for phase two?",
+    "draft": "Glad you like them. On the phase two cost, I'm still pulling numbers together and will get back to you.",
+    "asks": [
+      { "q": "Before I show the board, can you tell me the total cost for phase two?", "missed": true }
+    ],
+    "note": "The reply names the topic but gives no cost. A deferral is not an answer."
+  },
+  {
+    "id": "client-004",
+    "domain": "client-services",
+    "tags": ["rhetorical", "none-asked", "signature-noise"],
+    "person": "Daniel",
+    "message": "Just confirming we received the invoice and it's been passed to accounts. Let me know if you have any questions.\n\nDaniel Okafor\nHead of Marketing, Brightline\n+44 20 7946 0958",
+    "draft": "Perfect, thank you Daniel.",
+    "asks": [],
+    "note": "'Let me know if you have any questions' asks nothing. No flag should show."
+  },
+  {
+    "id": "client-005",
+    "domain": "client-services",
+    "tags": ["polite-request-no-qmark", "single-ask"],
+    "person": "Priya",
+    "message": "Loved the second concept. Please send over the source files when you get a chance, ideally before the weekend.",
+    "draft": "So glad the second one landed. I'll keep refining the colours this week.",
+    "asks": [
+      { "q": "Please send over the source files when you get a chance, ideally before the weekend.", "missed": true }
+    ],
+    "note": "A request without a question mark. Not addressed."
+  },
+  {
+    "id": "client-006",
+    "domain": "client-services",
+    "tags": ["one-liner", "single-ask", "all-answered", "yes-no"],
+    "person": "Priya",
+    "message": "Can we push the launch to the 3rd?",
+    "draft": "Yes.",
+    "asks": [
+      { "q": "Can we push the launch to the 3rd?", "missed": false }
+    ],
+    "note": "A one-word reply that fully answers a yes/no question."
+  },
+  {
+    "id": "client-007",
+    "domain": "client-services",
+    "tags": ["quoted-history", "multi-ask", "partial"],
+    "person": "Tom",
+    "message": "Following up on the below. Did the revised timeline work for your team? Also, who should we put down as the day-to-day contact on your side?\n\nOn Tue, 12 May 2026 at 09:14, Alex <a@example.com> wrote:\n> Here is the revised timeline. Can you confirm the budget line for Q3?",
+    "draft": "The revised timeline works, thanks for adjusting it.",
+    "asks": [
+      { "q": "Did the revised timeline work for your team?", "missed": false },
+      { "q": "Also, who should we put down as the day-to-day contact on your side?", "missed": true }
+    ],
+    "note": "The quoted history contains a question from the user themselves; it must not be counted."
+  }
+]

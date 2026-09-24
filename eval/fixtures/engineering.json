@@ -1,0 +1,73 @@
+[
+  {
+    "id": "eng-001",
+    "domain": "engineering",
+    "tags": ["multi-ask", "partial", "embedded-question"],
+    "person": "Sam",
+    "message": "Reviewed the PR. The retry logic looks right. Two things: why did you drop the exponential backoff, and is there a test for the timeout path? I couldn't find one.",
+    "draft": "Thanks for the review. I dropped the backoff because the upstream service already rate limits us and the double delay was making p99 worse. Will push the fix for the lint warning too.",
+    "asks": [
+      { "q": "Two things: why did you drop the exponential backoff, and is there a test for the timeout path?", "missed": true }
+    ],
+    "note": "Backoff explained, timeout test not addressed."
+  },
+  {
+    "id": "eng-002",
+    "domain": "engineering",
+    "tags": ["single-ask", "all-answered", "yes-no"],
+    "person": "Sam",
+    "message": "Does the migration need downtime?",
+    "draft": "No. It adds a nullable column, so it runs online.",
+    "asks": [
+      { "q": "Does the migration need downtime?", "missed": false }
+    ],
+    "note": "Short and complete."
+  },
+  {
+    "id": "eng-003",
+    "domain": "engineering",
+    "tags": ["polite-request-no-qmark", "multi-ask", "partial"],
+    "person": "Jess",
+    "message": "Before the release branch is cut on Thursday, please bump the SDK version and update the changelog. Also tag me on the release notes PR so I can review the wording.",
+    "draft": "SDK bumped to 2.4.0 and the changelog is updated in the same commit.",
+    "asks": [
+      { "q": "Before the release branch is cut on Thursday, please bump the SDK version and update the changelog.", "missed": false },
+      { "q": "Also tag me on the release notes PR so I can review the wording.", "missed": true }
+    ],
+    "note": "Two imperative requests, one done."
+  },
+  {
+    "id": "eng-004",
+    "domain": "engineering",
+    "tags": ["none-asked", "rhetorical"],
+    "person": "Jess",
+    "message": "Deployed 2.4.0 to prod at 16:05. Error rate is flat. Who knew a Friday deploy could go smoothly? Have a good weekend.",
+    "draft": "Nice work. Enjoy the weekend.",
+    "asks": [],
+    "note": "A rhetorical question in a status update."
+  },
+  {
+    "id": "eng-005",
+    "domain": "engineering",
+    "tags": ["third-party-question", "single-ask", "all-answered"],
+    "person": "Sam",
+    "message": "Looping in Alex. Priya, can you share the load test results from last week? Alex, could you confirm the cache TTL we settled on?",
+    "draft": "TTL is 300 seconds, agreed in Tuesday's sync.",
+    "asks": [
+      { "q": "Alex, could you confirm the cache TTL we settled on?", "missed": false }
+    ],
+    "note": "The first question is for Priya, not the user. Only the TTL question is the user's to answer."
+  },
+  {
+    "id": "eng-006",
+    "domain": "engineering",
+    "tags": ["single-ask", "deferral", "numbers-dates"],
+    "person": "Jess",
+    "message": "What's the estimate for the search rewrite? Product wants a date for the roadmap by end of day.",
+    "draft": "Still scoping it, there are a couple of unknowns around the indexer. Let me dig in and come back to you.",
+    "asks": [
+      { "q": "What's the estimate for the search rewrite?", "missed": true }
+    ],
+    "note": "No estimate given despite the deadline."
+  }
+]

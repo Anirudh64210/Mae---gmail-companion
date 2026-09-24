@@ -1,0 +1,24 @@
+/* Tokens from docs/DESIGN.md. Nothing else. */
+:root {
+  --surface: #FFFFFF; --line: #CFD5D2; --ink: #121715; --ink2: #3A4340; --muted: #6D7773; --focus: #2B59D1;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --surface: #1F2321; --line: #3A433F; --ink: #E8ECEA; --ink2: #C3CAC7; --muted: #8E9894; --focus: #7FA2F5; }
+}
+html, body { margin: 0; background: var(--surface); color: var(--ink2); }
+body {
+  width: 240px;
+  font: 13px/18px "Google Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+main { padding: 12px 14px 14px; }
+header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+header img { image-rendering: pixelated; }
+h1 { margin: 0; font-size: 13px; line-height: 18px; font-weight: 600; color: var(--ink); }
+p { margin: 0 0 12px; }
+button {
+  font: inherit; font-weight: 600; border: 0; margin: 0; cursor: pointer;
+  background: var(--ink); color: var(--surface); border-radius: 7px; padding: 5px 11px;
+}
+button[disabled] { opacity: .5; cursor: default; }
+button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }

@@ -1,0 +1,61 @@
+[
+  {
+    "id": "fin-001",
+    "domain": "finance-invoicing",
+    "tags": ["multi-ask", "partial", "numbers-dates"],
+    "person": "Claire",
+    "message": "Invoice 2041 is missing a PO number, can you resend it with PO 88-1173? Also, is the amount inclusive of VAT? Our system needs the net figure.",
+    "draft": "Resent with the PO number, thanks for catching that.",
+    "asks": [
+      { "q": "Invoice 2041 is missing a PO number, can you resend it with PO 88-1173?", "missed": false },
+      { "q": "Also, is the amount inclusive of VAT?", "missed": true }
+    ],
+    "note": "VAT question ignored."
+  },
+  {
+    "id": "fin-002",
+    "domain": "finance-invoicing",
+    "tags": ["single-ask", "all-answered", "numbers-dates"],
+    "person": "Claire",
+    "message": "When can we expect payment for the March invoice?",
+    "draft": "It was approved yesterday and is in Friday's payment run, so it should land by the 12th.",
+    "asks": [
+      { "q": "When can we expect payment for the March invoice?", "missed": false }
+    ],
+    "note": "A date is given."
+  },
+  {
+    "id": "fin-003",
+    "domain": "finance-invoicing",
+    "tags": ["disclaimer", "single-ask", "mentioned-not-answered"],
+    "person": "Victor",
+    "message": "Please confirm the bank details below are still correct before we release the transfer.\nAccount name: Alex Studio\nSort code: 20-00-00\nAccount: 12345678\n\nThis email and any attachments are confidential and intended solely for the addressee. If you have received this in error, please notify the sender and delete it.",
+    "draft": "Thanks Victor. Looking forward to receiving the transfer, let me know once it's sent.",
+    "asks": [
+      { "q": "Please confirm the bank details below are still correct before we release the transfer.", "missed": true }
+    ],
+    "note": "The reply never confirms the details. The disclaimer must not produce asks."
+  },
+  {
+    "id": "fin-004",
+    "domain": "finance-invoicing",
+    "tags": ["single-ask", "all-answered", "yes-no"],
+    "person": "Victor",
+    "message": "Please confirm the bank details below are still correct before we release the transfer.\nAccount name: Alex Studio\nSort code: 20-00-00\nAccount: 12345678",
+    "draft": "Confirmed, those details are correct.",
+    "asks": [
+      { "q": "Please confirm the bank details below are still correct before we release the transfer.", "missed": false }
+    ],
+    "note": "Same request, confirmed."
+  },
+  {
+    "id": "fin-005",
+    "domain": "finance-invoicing",
+    "tags": ["none-asked"],
+    "person": "Claire",
+    "message": "Payment of $4,250.00 for invoice 2041 was sent today. Remittance advice is attached.",
+    "draft": "Received with thanks.",
+    "asks": [],
+    "note": "A remittance notice."
+  }
+]

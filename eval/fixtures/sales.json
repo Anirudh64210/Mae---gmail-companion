@@ -1,0 +1,74 @@
+[
+  {
+    "id": "sales-001",
+    "domain": "sales",
+    "tags": ["multi-ask", "partial", "numbers-dates"],
+    "person": "Elena",
+    "message": "Thanks for the demo. Our team liked it. What would the annual cost be for 40 seats? Does that include the SSO add-on? And can you send the security questionnaire back to us by the 30th?",
+    "draft": "Hi Elena, glad the demo went well. For 40 seats the annual cost is $18,400, and yes, SSO is included at that tier.",
+    "asks": [
+      { "q": "What would the annual cost be for 40 seats?", "missed": false },
+      { "q": "Does that include the SSO add-on?", "missed": false },
+      { "q": "And can you send the security questionnaire back to us by the 30th?", "missed": true }
+    ],
+    "note": "Pricing answered, questionnaire deadline ignored."
+  },
+  {
+    "id": "sales-002",
+    "domain": "sales",
+    "tags": ["single-ask", "paraphrased-answer"],
+    "person": "Elena",
+    "message": "Is there any flexibility on the payment terms? Net 30 is tight for our finance team.",
+    "draft": "We can do net 60 for the first year.",
+    "asks": [
+      { "q": "Is there any flexibility on the payment terms?", "missed": false }
+    ],
+    "note": "Answered with none of the question's words."
+  },
+  {
+    "id": "sales-003",
+    "domain": "sales",
+    "tags": ["none-asked", "newsletter"],
+    "person": "Northwind",
+    "message": "This month at Northwind: new reporting dashboards, faster exports, and a refreshed mobile app. Read the full changelog on our blog. Want fewer emails? Update your preferences any time.",
+    "draft": "",
+    "asks": [],
+    "note": "A newsletter. 'Want fewer emails?' is not a question to the reader that needs a reply."
+  },
+  {
+    "id": "sales-004",
+    "domain": "sales",
+    "tags": ["single-ask", "deferral"],
+    "person": "Raj",
+    "message": "Before I take this to procurement, could you confirm the contract can be cancelled with 30 days notice?",
+    "draft": "Great that you're taking it to procurement. I'll check with legal on the cancellation terms and confirm.",
+    "asks": [
+      { "q": "Before I take this to procurement, could you confirm the contract can be cancelled with 30 days notice?", "missed": true }
+    ],
+    "note": "Promise to confirm later, not a confirmation."
+  },
+  {
+    "id": "sales-005",
+    "domain": "sales",
+    "tags": ["multi-ask", "all-answered", "list-of-asks"],
+    "person": "Raj",
+    "message": "Three things from our side:\n1. Which data centre region would our data live in?\n2. Do you offer a sandbox environment?\n3. Who is our point of contact after signing?",
+    "draft": "Answers below:\n1. EU West (Dublin) by default, and we can pin it to Frankfurt on request.\n2. Yes, every plan includes a sandbox.\n3. You'd be assigned a customer success manager, most likely Sofia, within a day of signing.",
+    "asks": [
+      { "q": "Which data centre region would our data live in?", "missed": false },
+      { "q": "Do you offer a sandbox environment?", "missed": false },
+      { "q": "Who is our point of contact after signing?", "missed": false }
+    ],
+    "note": "Numbered asks, numbered answers."
+  },
+  {
+    "id": "sales-006",
+    "domain": "sales",
+    "tags": ["self-answered", "none-asked"],
+    "person": "Raj",
+    "message": "Should we wait for the Q3 budget? I asked finance and the answer is no, we can proceed now. I'll send the PO tomorrow.",
+    "draft": "Excellent, thanks Raj. I'll have the order form ready.",
+    "asks": [],
+    "note": "The sender asks and answers their own question."
+  }
+]

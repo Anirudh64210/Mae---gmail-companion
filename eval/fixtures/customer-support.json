@@ -1,0 +1,61 @@
+[
+  {
+    "id": "support-001",
+    "domain": "customer-support",
+    "tags": ["multi-ask", "partial"],
+    "person": "Lucy",
+    "message": "My export has been stuck at 90% since yesterday. Is this a known issue? And can I get a refund for this month if it isn't fixed by Friday?",
+    "draft": "Hi Lucy, sorry about this. Yes, we're aware of the export issue and a fix is rolling out today. You should see it complete within a few hours.",
+    "asks": [
+      { "q": "Is this a known issue?", "missed": false },
+      { "q": "And can I get a refund for this month if it isn't fixed by Friday?", "missed": true }
+    ],
+    "note": "Refund question skipped."
+  },
+  {
+    "id": "support-002",
+    "domain": "customer-support",
+    "tags": ["single-ask", "all-answered"],
+    "person": "Lucy",
+    "message": "How do I change the email address on my account?",
+    "draft": "Go to Settings, then Profile, and click Edit next to your email. You'll get a confirmation link at the new address.",
+    "asks": [
+      { "q": "How do I change the email address on my account?", "missed": false }
+    ],
+    "note": "A how-to question with a full answer."
+  },
+  {
+    "id": "support-003",
+    "domain": "customer-support",
+    "tags": ["single-ask", "mentioned-not-answered"],
+    "person": "Omar",
+    "message": "I was charged twice on the 4th. Which of the two charges will be reversed, and when will I see the money back?",
+    "draft": "Apologies for the double charge, Omar. I've raised this with billing and they're looking into the reversal.",
+    "asks": [
+      { "q": "Which of the two charges will be reversed, and when will I see the money back?", "missed": true }
+    ],
+    "note": "Acknowledged, but neither which nor when is answered."
+  },
+  {
+    "id": "support-004",
+    "domain": "customer-support",
+    "tags": ["none-asked", "long-message"],
+    "person": "Omar",
+    "message": "Just wanted to say the new dashboard is a big improvement. The load time used to be painful and now it's instant. Whoever worked on it, please pass on my thanks. No action needed from you, I just don't send enough nice emails.",
+    "draft": "That made our day, thank you. I'll pass it along to the team.",
+    "asks": [],
+    "note": "'Please pass on my thanks' is a courtesy, and the sender says no action is needed."
+  },
+  {
+    "id": "support-005",
+    "domain": "customer-support",
+    "tags": ["single-ask", "polite-request-no-qmark", "decline-is-answer"],
+    "person": "Grace",
+    "message": "Please reset my password and send me a temporary one by email.",
+    "draft": "For security we can't send passwords by email, but I've sent a reset link to your address. It's valid for one hour.",
+    "asks": [
+      { "q": "Please reset my password and send me a temporary one by email.", "missed": false }
+    ],
+    "note": "The request is declined and an alternative is given. That addresses it."
+  }
+]

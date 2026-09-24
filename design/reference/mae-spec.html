@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mae, the Carrier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F5F6F6; --surface:#FFFFFF; --tile:#ECEFED; --tile-line:#E2E6E4;
+  --ink:#121715; --ink-2:#3A4340; --muted:#6D7773; --line:#E1E5E3; --line-2:#CFD5D2;
+  --blue:#2B59D1; --amber:#C26A12; --green:#2C8656;
+  --shadow:0 1px 1px rgba(16,24,20,.04),0 6px 20px rgba(16,24,20,.06);
+  --h:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --b:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --m:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0F1211; --surface:#171B1A; --tile:#DDE2DF; --tile-line:#CDD3D0;
+    --ink:#E8ECEA; --ink-2:#C3CAC7; --muted:#8E9894; --line:#262D2B; --line-2:#343D3A;
+    --blue:#5C86F0; --amber:#E79A4A; --green:#5FC48C;
+    --shadow:0 1px 1px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0F1211; --surface:#171B1A; --tile:#DDE2DF; --tile-line:#CDD3D0;
+  --ink:#E8ECEA; --ink-2:#C3CAC7; --muted:#8E9894; --line:#262D2B; --line-2:#343D3A;
+  --blue:#5C86F0; --amber:#E79A4A; --green:#5FC48C;
+  --shadow:0 1px 1px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--b);font-size:15px;line-height:1.55;padding-inline:16px;padding-block:40px 80px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:64px}
+h1,h2,h3{font-family:var(--h);margin:0;text-wrap:balance;letter-spacing:-.015em}
+h1{font-size:clamp(34px,5vw,52px);line-height:1;font-weight:700}
+h2{font-size:20px;font-weight:600}
+h3{font-size:15px;font-weight:600}
+p{margin:0}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.kicker{font-family:var(--m);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+canvas{image-rendering:pixelated;image-rendering:crisp-edges;display:block}
+.sec{display:flex;flex-direction:column;gap:18px}
+
+.hero{display:grid;grid-template-columns:auto minmax(0,1fr);gap:44px;align-items:center}
+.big{background:var(--tile);border-radius:16px;padding:28px 44px;display:grid;place-items:center;background-image:linear-gradient(var(--tile-line) 1px,transparent 1px),linear-gradient(90deg,var(--tile-line) 1px,transparent 1px);background-size:24px 24px}
+.intro{display:flex;flex-direction:column;gap:16px}
+.intro .lede{color:var(--muted);font-size:16.5px;max-width:48ch}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14px;border-top:1px solid var(--line);padding-top:14px;max-width:440px}
+.facts dt{color:var(--muted);font-family:var(--m);font-size:12px;padding-top:2px}
+.facts dd{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:4px 11px;font-size:12.5px;color:var(--ink-2)}
+.chip.on{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.ctrl{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{border:1px solid var(--line-2);background:transparent;border-radius:8px;padding:5px 12px;font-size:13px}
+.now{font-size:14px;color:var(--muted)}
+.now b{color:var(--ink);font-weight:600}
+
+.real{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end}
+.strip{position:relative;display:flex;align-items:center;justify-content:flex-end;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;box-shadow:var(--shadow);margin-top:50px}
+.strip .fmt{margin-right:auto;font-family:var(--m);font-size:12px;color:var(--muted);letter-spacing:.2em}
+.send{border:0;border-radius:8px;background:var(--blue);color:#fff;font-weight:600;font-size:14px;padding:8px 18px}
+.send.thud{animation:thud .28s ease-out}
+@keyframes thud{25%{transform:translateX(-3px)}50%{transform:translateX(3px)}75%{transform:translateX(-1.5px)}}
+.pill{position:absolute;right:0;bottom:calc(100% + 8px);background:var(--surface);border:1px solid var(--line-2);border-radius:9px;padding:6px 8px 6px 10px;font-size:12.5px;display:flex;gap:8px;align-items:center;box-shadow:var(--shadow);white-space:nowrap;opacity:0;transform:translateY(4px);transition:all .25s}
+.pill.show{opacity:1;transform:none}
+.pill b{font-weight:600}
+.pill .a{background:var(--ink);color:var(--surface);border-radius:6px;padding:2px 8px;font-weight:600}
+.pill .s{color:var(--muted)}
+.dots{display:flex;gap:3px}.dots i{width:5px;height:5px;border-radius:50%;background:var(--green);display:block}.dots i.o{background:transparent;box-shadow:inset 0 0 0 1.5px var(--amber)}
+.sizes{display:flex;gap:16px;align-items:flex-end;font-family:var(--m);font-size:11px;color:var(--muted)}
+.sizes div{display:flex;flex-direction:column;align-items:center;gap:6px}
+.sizes .t{background:var(--tile);border-radius:8px;padding:8px}
+
+.moods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.mood{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start}
+.mood .t{background:var(--tile);border-radius:8px;padding:6px 10px}
+.mood dl{margin:4px 0 0;display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:13px}
+.mood dt{color:var(--muted);font-family:var(--m);font-size:11px;padding-top:2px}
+.mood dd{margin:0;color:var(--ink-2)}
+
+.spec{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:start}
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.s{display:flex;align-items:center;gap:10px;font-size:13px}
+.s i{width:26px;height:26px;border-radius:6px;display:block;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.s span{display:flex;flex-direction:column;line-height:1.3}
+.s code{font-family:var(--m);font-size:11px;color:var(--muted)}
+.rules{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.rules li{font-size:14px;color:var(--muted);padding-left:14px;position:relative}
+.rules li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--line-2)}
+.rules b{color:var(--ink);font-weight:600}
+.sheetwrap{overflow-x:auto;background:var(--tile);border-radius:12px;padding:14px}
+.sheetrow{display:flex;align-items:center;gap:12px}
+.sheetlabels{display:flex;flex-direction:column;font-family:var(--m);font-size:11px;color:#56605C}
+.sheetlabels span{height:84px;display:flex;align-items:center}
+
+@media (max-width:820px){
+  .hero,.real,.spec{grid-template-columns:minmax(0,1fr)}
+  .big{justify-self:center}
+  .moods{grid-template-columns:minmax(0,1fr)}
+  .pill .s{display:none}
+}
+@media (prefers-reduced-motion:reduce){ *{animation:none!important;transition:none!important} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <section class="hero" aria-label="Mae">
+    <div class="big"><canvas id="bigC" width="20" height="28" style="width:240px;height:336px" role="img" aria-label="Mae, a pixel mail carrier"></canvas></div>
+    <div class="intro">
+      <div class="kicker">Companion &middot; final &middot; v1.4</div>
+      <h1>Mae, the Carrier</h1>
+      <p class="lede">Mae waits behind your Send button and only comes out when a question gets missed. Slate cap and uniform with a gold badge, a short unisex crop. More styles can come later as unlockable looks.</p>
+      <dl class="facts">
+        <dt>Build</dt><dd>Big head, short body</dd>
+        <dt>Uniform</dt><dd>Slate cap with gold badge, light slate shirt with two pockets, slate trousers</dd>
+        <dt>Hair</dt><dd>Short crop, swept fringe, dark brown</dd>
+        <dt>Skin</dt><dd>Medium</dd>
+        <dt>Canvas</dt><dd>20 &times; 28 pixels, 8 frames per second, mirror-symmetric</dd>
+        <dt>In product</dt><dd>Drawn at 2&times;, 40 &times; 56 pixels</dd>
+      </dl>
+      <div class="chips" id="chips"></div>
+      <div class="ctrl"><button class="btn" id="play" type="button">Pause</button><span class="now" id="now"></span></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-real">
+    <div class="kicker">At real size</div>
+    <h2 id="h-real">Beside the Send button</h2>
+    <div class="real">
+      <div class="strip">
+        <div class="pill" id="pill"><span class="dots"><i></i><i></i><i class="o"></i></span><span><b>Maya</b> asked &ldquo;What&rsquo;s your day rate for the extra design sprint?&rdquo;</span><span class="a">Answer</span><span class="s">Send anyway</span></div>
+        <span class="fmt" aria-hidden="true">B I &#8599;</span>
+        <canvas id="smallC" width="20" height="28" style="width:40px;height:56px" aria-hidden="true"></canvas>
+        <button class="send" id="send" type="button" tabindex="-1">Send</button>
+      </div>
+      <div class="sizes">
+        <div><div class="t"><canvas class="sz" width="20" height="28" style="width:20px;height:28px"></canvas></div>1&times;</div>
+        <div><div class="t"><canvas class="sz" width="20" height="28" style="width:40px;height:56px"></canvas></div>2&times;</div>
+        <div><div class="t"><canvas class="sz" width="20" height="28" style="width:60px;height:84px"></canvas></div>3&times;</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-moods">
+    <div class="kicker">Moods</div>
+    <h2 id="h-moods">Eight moods, each tied to one moment</h2>
+    <div class="moods" id="moods"></div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-sheet">
+    <div class="kicker">Sprite sheet</div>
+    <h2 id="h-sheet">Every frame, for the build</h2>
+    <div class="sheetwrap"><div class="sheetrow"><div class="sheetlabels" id="sheetLabels"></div><canvas id="sheet" aria-label="Sprite sheet of all moods and frames"></canvas></div></div>
+  </section>
+
+  <section class="spec" aria-label="Spec">
+    <div class="sec">
+      <div class="kicker">Palette</div>
+      <h2>Colors</h2>
+      <div class="sw" id="sw"></div>
+    </div>
+    <div class="sec">
+      <div class="kicker">Rules</div>
+      <h2>How Mae behaves</h2>
+      <ul class="rules">
+        <li><b>Hidden by default.</b> Mae only slides out from behind Send when something is missing, and once for the intro. Nothing is read until Send is pressed.</li>
+        <li><b>Unimpressed is the worst mood.</b> No sad, angry or crying states, ever.</li>
+        <li><b>One reaction per send.</b> The Send button shakes once with the unimpressed look; it never repeats.</li>
+        <li><b>Send anyway gets a shrug,</b> and Mae never brings it up again.</li>
+        <li><b>Sealed plays once,</b> about 1.75 seconds to the seal, then the email sends and Mae goes back to sleep.</li>
+        <li><b>Crisp pixels only.</b> Scale by whole numbers with smoothing off.</li>
+        <li><b>Clean edges.</b> Every feature sits at least one pixel inside the outline, and hands never touch the face.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+/* Mae sprite v1.2: hand-placed pixels, mirror-symmetric around the canvas center (x <-> 19 - x).
+   Moods: wave, asleep, checking, waiting, unimpressed, relieved, sealed, shrug.
+   t is in ticks (8 per second). For "sealed", t must count from the moment the state started. */
+var MAE = (function(){
+  var W = 20, H = 28, OY = 4;
+  var P = {
+    out:'#231E1C', cap:'#3E5A6E', capHi:'#56768C', brim:'#2C4252', badge:'#E8D48A',
+    hair:'#3A2419', skin:'#D9A06E', skinD:'#B97F50', blush:'#D9826A', feat:'#1D1A19',
+    shirt:'#A9C2D1', shirtD:'#809CAF', pants:'#3E5A6E', shoe:'#3B3230',
+    env:'#FAF8F2', envL:'#9E9788', fx:'#8C9490', puff:'#B4BEBA',
+    // sealed envelope
+    paper:'#FAF8F2', lip:'#EDE7DA', inside:'#E2DAC8', flap:'#F2EDE2', edge:'#B8AE98', fold:'#D3CBB9',
+    seal:'#D9AE45', sealHi:'#F2D98A', spark:'#E6A93A', sparkHi:'#FFF6D6'
+  };
+  function Grid(){ this.c = []; for (var y=0;y<H;y++){ this.c.push(new Array(W).fill(null)); } }
+  Grid.prototype.set = function(x,y,col){ if(x>=0&&y>=0&&x<W&&y<H) this.c[y][x]=col; };
+  Grid.prototype.get = function(x,y){ return (x>=0&&y>=0&&x<W&&y<H) ? this.c[y][x] : null; };
+  Grid.prototype.row = function(x0,x1,y,col){ for(var x=x0;x<=x1;x++) this.set(x,y,col); };
+  Grid.prototype.outline = function(){
+    var add=[], x, y;
+    for (y=0;y<H;y++) for (x=0;x<W;x++){
+      if (this.c[y][x]) continue;
+      if (this.get(x,y-1)||this.get(x,y+1)||this.get(x-1,y)||this.get(x+1,y)) add.push([x,y]);
+    }
+    for (var i=0;i<add.length;i++) this.c[add[i][1]][add[i][0]] = P.out;
+  };
+
+  // draw helpers in figure space (y offset added), m = mirrored
+  function mk(g, dy){
+    return {
+      p:function(x,y,c){ g.set(x, y+OY+dy, c); },
+      m:function(x,y,c){ g.set(x, y+OY+dy, c); g.set(19-x, y+OY+dy, c); },
+      row:function(x0,x1,y,c){ for(var x=x0;x<=x1;x++) g.set(x, y+OY+dy, c); }
+    };
+  }
+
+  function head(d){
+    d.row(6,13,1,P.capHi);
+    d.row(5,14,2,P.cap); d.row(5,14,3,P.cap);
+    d.p(9,2,P.badge); d.p(10,2,P.badge);
+    d.row(3,16,4,P.brim);
+    d.row(4,15,5,P.hair);
+    d.m(4,6,P.hair); d.m(5,6,P.hair); d.row(6,13,6,P.skin);
+    d.m(4,7,P.hair); d.row(5,14,7,P.skin);
+    for (var y=8;y<=11;y++) d.row(4,15,y,P.skin);
+    d.row(5,14,12,P.skin);
+    d.m(3,8,P.skin); d.m(3,9,P.skinD);
+  }
+
+  function face(d, mood, t){
+    var F=P.feat;
+    if (mood==='asleep'){ d.m(6,9,F); d.m(7,9,F); d.p(9,11,P.skinD); d.p(10,11,P.skinD); }
+    if (mood==='checking'){ var f=((t>>1)%2); d.p(7-f,9,F); d.p(12-f,9,F); d.m(6,7,F); d.m(7,7,F); d.p(9,11,F); d.p(10,11,F); }
+    // waiting: calm, eyes resting on the envelope, one slow blink every 3 s
+    if (mood==='waiting'){ if ((t%24)===23){ d.m(6,9,F); d.m(7,9,F); } else d.m(7,9,F); d.p(9,11,F); d.p(10,11,F); }
+    if (mood==='unimpressed'){ var blink=(t%24)===0; d.m(6,8,F); d.m(7,8,F); if(!blink) d.m(7,9,F); d.row(8,11,11,F); }
+    if (mood==='relieved'){ d.m(6,8,F); d.m(7,9,F); d.m(8,8,F); d.m(5,10,P.blush); d.row(9,10,10,F); d.row(9,10,11,F); }
+    if (mood==='shrug'){ var bl=(t%20)===0; if(!bl) d.m(7,8,F); d.m(7,9,F); d.m(6,7,F); d.m(7,6,F); d.row(9,10,11,F); }
+    if (mood==='wave'){ var wb=(t%28)===0; if(!wb) d.m(7,8,F); d.m(7,9,F); d.m(5,10,P.blush); d.m(8,10,F); d.row(9,10,11,F); }
+  }
+
+  function body(d, mood, t){
+    d.row(6,13,13,P.shirt); d.p(9,13,P.skinD); d.p(10,13,P.skinD);
+    for (var y=14;y<=17;y++) d.row(6,13,y,P.shirt);
+    d.m(7,15,P.shirtD);
+    d.row(6,13,18,P.pants); d.row(6,13,19,P.pants);
+    d.row(6,8,20,P.pants); d.row(11,13,20,P.pants);
+    d.row(5,8,21,P.shoe); d.row(11,14,21,P.shoe);
+    if (mood==='unimpressed' && (t%6)<3){ d.p(14,21,null); d.p(14,20,P.shoe); }
+  }
+
+  function arms(d, mood, t){
+    var S=P.shirtD, K=P.skin;
+    if (mood==='asleep'||mood==='relieved'){ d.m(5,14,S); d.m(5,15,S); d.m(5,16,S); d.m(5,17,K); }
+    if (mood==='checking'||mood==='waiting'){
+      d.m(5,14,S); d.m(5,15,S); d.m(5,16,S); d.m(6,16,K);
+      d.row(7,12,14,P.envL); d.row(7,12,17,P.envL);
+      d.m(7,15,P.envL); d.m(7,16,P.envL);
+      d.m(8,15,P.envL); d.m(9,15,P.env); d.m(8,16,P.env); d.m(9,16,P.envL);
+    }
+    if (mood==='unimpressed'){ d.m(5,14,S); d.row(5,14,15,S); d.row(5,14,16,S); }
+    if (mood==='shrug'){ var up=((t>>2)%2)===0; d.m(5,14,S); d.m(4,14,S); d.m(3,14,S); if(up){ d.m(3,13,S); d.m(3,12,K); } else { d.m(3,13,K); } }
+    if (mood==='wave'){
+      // left arm down; right arm raised, hand waving between two positions
+      d.p(5,14,S); d.p(5,15,S); d.p(5,16,S); d.p(5,17,K);
+      var w=((t>>1)%2)===0;
+      d.p(14,14,S); d.p(15,14,S); d.p(16,13,S); d.p(17,12,S);
+      if (w){ d.p(18,11,K); d.p(18,10,K); } else { d.p(18,11,S); d.p(18,10,K); d.p(18,9,K); }
+    }
+  }
+
+  function effects(g, mood, t){
+    var put=function(x,y,c){ if(!g.get(x,y)) g.set(x,y,c); };
+    if (mood==='asleep'){
+      var ph=t%16; if (ph<12){ var y0=2-(ph>>2);
+      var Z=[[0,0],[1,0],[2,0],[1,1],[0,2],[1,2],[2,2]];
+      for (var i=0;i<Z.length;i++) put(16+Z[i][0], y0+Z[i][1], P.fx); }
+    }
+    if (mood==='relieved'){
+      var q=t%12; if (q<8){ if(q<4){ put(18,15,P.puff); put(19,15,P.puff); put(18,14,P.puff); } else { put(19,13,P.puff); } }
+    }
+  }
+
+  // ---- sealed: Mae hops, dives into an envelope, the flap closes with her badge as the seal, it glitters ----
+  var DIVE = [0,-2,-3,-4,-4,-3,0,3,6,9,12,15];   // Mae's vertical offset per tick; after that she is inside
+  var SEAL_AT = 14;                                // tick the seal lands (sound + "ready")
+  function buildSealed(t, opts){
+    var g = new Grid(), T = Math.max(0, t);
+    var envOn = T >= 1;
+    var ey = T === 1 ? 2 : (T >= 15 && T <= 18 ? [-1,-2,-1,0][T-15] : 0);
+    var FRONT = 17 + ey;
+    var flap = T <= 11 ? 'open' : (T === 12 ? 'half' : 'closed');
+    if (envOn && flap === 'open') for (var i=0;i<6;i++) g.row(2+i, 17-i, 16-i+ey, P.inside);
+    if (T < DIVE.length){
+      var m = build('relieved', 4, { noFx:true }), off = DIVE[T];
+      for (var y=0;y<H;y++) for (var x=0;x<W;x++){
+        var col = m.c[y][x]; if (!col || col === P.out) continue;
+        var yy = y + off; if (envOn && yy >= FRONT) continue;
+        g.set(x, yy, col);
+      }
+    }
+    if (envOn){
+      for (var r=0;r<10;r++) g.row(2, 17, FRONT+r, P.paper);
+      g.row(2, 17, FRONT, P.lip);
+      for (var k=0;k<7;k++){ g.set(2+k, FRONT+9-k, P.fold); g.set(17-k, FRONT+9-k, P.fold); }
+    }
+    if (envOn && flap === 'half'){ g.row(2,17,FRONT-1,P.flap); g.row(2,17,FRONT,P.edge); }
+    if (envOn && flap === 'closed'){
+      for (var j=0;j<7;j++){ g.row(2+j, 17-j, FRONT+j, P.flap); g.set(2+j, FRONT+j, P.edge); g.set(17-j, FRONT+j, P.edge); }
+      g.row(8, 11, FRONT+6, P.edge);
+      if (T >= SEAL_AT){ g.set(9,FRONT+5,P.sealHi); g.set(10,FRONT+5,P.sealHi); g.set(9,FRONT+6,P.seal); g.set(10,FRONT+6,P.seal); }
+    }
+    g.outline();
+    if (T >= SEAL_AT && !(opts && opts.noFx)){
+      var put=function(x,y,c){ if(!g.get(x,y)) g.set(x,y,c); };
+      var star=function(cx,cy,size){
+        if (size<=0) return;
+        put(cx,cy,size>1?P.sparkHi:P.spark);
+        for (var s=1;s<size;s++){ put(cx-s,cy,P.spark); put(cx+s,cy,P.spark); put(cx,cy-s,P.spark); put(cx,cy+s,P.spark); }
+      };
+      var SZ=[1,2,3,2,1,0,0,0], a=SZ[(T-SEAL_AT)%8], b=SZ[(T-SEAL_AT+4)%8];
+      star(3, 11+ey, a); star(16, 11+ey, a);
+      star(7, 6+ey, b);  star(12, 6+ey, b);
+      if ((T-SEAL_AT)%4 < 2){ put(0, 21+ey, P.spark); put(19, 21+ey, P.spark); }
+    }
+    return g;
+  }
+
+  var MOODS = ['wave','asleep','checking','waiting','unimpressed','relieved','sealed','shrug'];
+
+  function build(mood, t, opts){
+    opts = opts || {};
+    if (mood==='sealed') return buildSealed(t, opts);
+    var g = new Grid();
+    var nod = mood==='asleep' ? ((t>>3)%2) : 0;
+    var b = mk(g, 0), h = mk(g, nod);
+    body(b, mood, t); arms(b, mood, t);
+    head(h); face(h, mood, t);
+    g.outline();
+    if (!opts.noFx) effects(g, mood, t);
+    return g;
+  }
+  function paint(cv, mood, t){
+    var ctx=cv.getContext('2d'); ctx.clearRect(0,0,W,H);
+    var g=build(mood,t);
+    for (var y=0;y<H;y++) for (var x=0;x<W;x++){ var col=g.c[y][x]; if(col){ ctx.fillStyle=col; ctx.fillRect(x,y,1,1); } }
+  }
+  return { W:W, H:H, P:P, MOODS:MOODS, build:build, paint:paint, SEAL_AT:SEAL_AT };
+})();
+
+
+(function(){
+  const W=MAE.W, H=MAE.H, P=MAE.P;
+  const MOODS = [
+    {k:'wave', label:'Wave', when:'Once, the intro after install', move:'Waves, smiles', loop:4},
+    {k:'asleep', label:'Asleep', when:'Spec and future use', move:'Head nods, z\u2019s rise', loop:16},
+    {k:'checking', label:'Checking', when:'Send pressed, under 0.5 s', move:'Holds up an envelope, eyes scan', loop:4},
+    {k:'waiting', label:'Waiting', when:'After Answer, while you type', move:'Holds the envelope, calm, slow blink', loop:24},
+    {k:'unimpressed', label:'Unimpressed', when:'A confident miss', move:'Arms crossed, flat stare, foot taps', loop:6},
+    {k:'relieved', label:'Relieved', when:'First beat of Sealed', move:'Eyes shut, a small phew', loop:12},
+    {k:'sealed', label:'Sealed', when:'Everything answered, sends', move:'Dives into an envelope, badge seals it, glitter', loop:22},
+    {k:'shrug', label:'Shrug', when:'Send anyway', move:'Palms up, lets it go', loop:8}
+  ];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let mood='asleep', playing=!reduce, tick=0, since=0, oi=0;
+  const ORDER=['wave','unimpressed','waiting','sealed','unimpressed','shrug'];
+  const HOLD={wave:24,waiting:24,asleep:24,checking:10,unimpressed:32,relieved:18,sealed:30,shrug:24};
+
+  const chips=document.getElementById('chips');
+  MOODS.forEach(m=>{ const c=document.createElement('button'); c.type='button'; c.className='chip'; c.dataset.k=m.k; c.textContent=m.label; c.addEventListener('click',()=>{ setMood(m.k); playing=false; document.getElementById('play').textContent='Play'; }); chips.appendChild(c); });
+  function setMood(k){
+    mood=k; since=tick; const m=MOODS.find(x=>x.k===k);
+    [...chips.children].forEach(c=>c.classList.toggle('on',c.dataset.k===k));
+    document.getElementById('now').innerHTML='<b>'+m.label+'</b> &middot; '+m.when;
+    document.getElementById('pill').classList.toggle('show', k==='unimpressed');
+    if (k==='unimpressed'){ const s=document.getElementById('send'); s.classList.remove('thud'); void s.offsetWidth; s.classList.add('thud'); }
+  }
+  document.getElementById('play').addEventListener('click',()=>{ playing=!playing; document.getElementById('play').textContent=playing?'Pause':'Play'; since=tick; });
+
+  const mg=document.getElementById('moods'), cards=[];
+  MOODS.forEach(m=>{
+    const d=document.createElement('div'); d.className='mood';
+    d.innerHTML='<div class="t"><canvas width="20" height="28" style="width:60px;height:84px"></canvas></div><div><h3>'+m.label+'</h3><dl><dt>When</dt><dd>'+m.when+'</dd><dt>Motion</dt><dd>'+m.move+'</dd><dt>Loop</dt><dd>'+m.loop+' frames</dd></dl></div>';
+    mg.appendChild(d); cards.push({cv:d.querySelector('canvas'), m:m.k});
+  });
+
+  const FR=8, sheet=document.getElementById('sheet'), sl=document.getElementById('sheetLabels');
+  sheet.width=W*FR; sheet.height=H*MOODS.length; sheet.style.width=(W*FR*3)+'px'; sheet.style.height=(H*MOODS.length*3)+'px';
+  const sctx=sheet.getContext('2d');
+  MOODS.forEach((m,r)=>{
+    const lab=document.createElement('span'); lab.textContent=m.label; sl.appendChild(lab);
+    for(let f=0;f<FR;f++){ const g=MAE.build(m.k,m.k==='sealed'?Math.round(f*20/(FR-1)):f*2);
+      for(let y=0;y<H;y++) for(let x=0;x<W;x++){ const col=g.c[y][x]; if(col){ sctx.fillStyle=col; sctx.fillRect(f*W+x, r*H+y,1,1);} } }
+  });
+
+  const PAL=[['Cap',P.cap],['Cap highlight',P.capHi],['Brim',P.brim],['Badge',P.badge],['Hair',P.hair],['Skin',P.skin],['Skin shade',P.skinD],['Blush',P.blush],['Shirt',P.shirt],['Sleeves, pockets',P.shirtD],['Trousers',P.pants],['Shoes',P.shoe],['Envelope',P.paper],['Envelope fold',P.fold],['Flap edge',P.edge],['Seal',P.seal],['Outline',P.out],['Features',P.feat],['Sparkle',P.spark],['Z and puff',P.fx]];
+  const sw=document.getElementById('sw');
+  PAL.forEach(p=>{ const d=document.createElement('div'); d.className='s'; d.innerHTML='<i style="background:'+p[1]+'"></i><span>'+p[0]+'<code>'+p[1]+'</code></span>'; sw.appendChild(d); });
+
+  const big=document.getElementById('bigC'), small=document.getElementById('smallC'), sz=[...document.querySelectorAll('.sz')];
+  function frame(){ const t=mood==='sealed'?tick-since:tick; MAE.paint(big,mood,t); MAE.paint(small,mood,t); sz.forEach(c=>MAE.paint(c,mood,t)); cards.forEach(c=>MAE.paint(c.cv,c.m,c.m==='sealed'?tick%34:tick)); }
+  setMood('wave'); frame();
+  if (reduce){ setMood('sealed'); frame(); }
+  else setInterval(()=>{ tick++; if(playing && tick-since>=HOLD[mood]){ oi=(oi+1)%ORDER.length; setMood(ORDER[oi]); } frame(); },125);
+})();
+</script>
+
+</body>
+</html>

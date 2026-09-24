@@ -1,0 +1,49 @@
+[
+  {
+    "id": "legal-001",
+    "domain": "legal-contracts",
+    "tags": ["multi-ask", "partial", "long-message"],
+    "person": "Rebecca",
+    "message": "I've reviewed the MSA. Clause 7.2 caps liability at fees paid in the last 12 months, which is standard. Clause 9 has a non-solicit that runs 24 months, which is long. Are you comfortable with 24 months, or should I push for 12? Separately, do you want the IP assignment to cover pre-existing materials, or only work created under this agreement? I'd suggest the latter.",
+    "draft": "Thanks Rebecca. Please push for 12 months on the non-solicit.",
+    "asks": [
+      { "q": "Are you comfortable with 24 months, or should I push for 12?", "missed": false },
+      { "q": "Separately, do you want the IP assignment to cover pre-existing materials, or only work created under this agreement?", "missed": true }
+    ],
+    "note": "IP question skipped."
+  },
+  {
+    "id": "legal-002",
+    "domain": "legal-contracts",
+    "tags": ["single-ask", "all-answered", "paraphrased-answer"],
+    "person": "Rebecca",
+    "message": "Do you want the IP assignment to cover pre-existing materials, or only work created under this agreement?",
+    "draft": "Only the new work. Anything I bring in stays mine.",
+    "asks": [
+      { "q": "Do you want the IP assignment to cover pre-existing materials, or only work created under this agreement?", "missed": false }
+    ],
+    "note": "Answered in plain words."
+  },
+  {
+    "id": "legal-003",
+    "domain": "legal-contracts",
+    "tags": ["polite-request-no-qmark", "single-ask", "deferral"],
+    "person": "James",
+    "message": "Kindly sign the attached NDA and return a scanned copy at your earliest convenience.",
+    "draft": "Received, thank you. I'll review it this week.",
+    "asks": [
+      { "q": "Kindly sign the attached NDA and return a scanned copy at your earliest convenience.", "missed": true }
+    ],
+    "note": "Reviewing is not signing and returning."
+  },
+  {
+    "id": "legal-004",
+    "domain": "legal-contracts",
+    "tags": ["none-asked", "disclaimer"],
+    "person": "James",
+    "message": "Fully executed copy attached for your records.\n\nCONFIDENTIALITY NOTICE: This message contains privileged information. Any unauthorised review or distribution is prohibited. Are you the intended recipient? If not, please delete this message.",
+    "draft": "Thank you, filed.",
+    "asks": [],
+    "note": "The only question mark is inside the legal footer."
+  }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "id": "pm-001",
+    "domain": "product-management",
+    "tags": ["multi-ask", "partial", "choice-question"],
+    "person": "Nadia",
+    "message": "For the onboarding redesign, do we go with the three-step flow or the single page? And have you had a chance to look at the drop-off data I sent? I'd like a decision before the sprint planning on Monday.",
+    "draft": "I looked at the drop-off data, thanks for pulling it. Step two is clearly where people leave.",
+    "asks": [
+      { "q": "For the onboarding redesign, do we go with the three-step flow or the single page?", "missed": true },
+      { "q": "And have you had a chance to look at the drop-off data I sent?", "missed": false }
+    ],
+    "note": "The decision is missing; the data question is answered."
+  },
+  {
+    "id": "pm-002",
+    "domain": "product-management",
+    "tags": ["single-ask", "paraphrased-answer", "choice-question"],
+    "person": "Nadia",
+    "message": "Three-step or single page, which one?",
+    "draft": "Let's go single page. Fewer clicks, and the data backs it.",
+    "asks": [
+      { "q": "Three-step or single page, which one?", "missed": false }
+    ],
+    "note": "A choice made."
+  },
+  {
+    "id": "pm-003",
+    "domain": "product-management",
+    "tags": ["implicit-ask", "single-ask"],
+    "person": "Ben",
+    "message": "The exec review is Thursday and I still don't have your section of the deck. I need it by Wednesday noon at the latest.",
+    "draft": "Sorry for the delay, it's been a hectic week. The pricing numbers came in late.",
+    "asks": [
+      { "q": "I need it by Wednesday noon at the latest.", "missed": true }
+    ],
+    "note": "A deadline stated as a need. Excuses are not a commitment."
+  },
+  {
+    "id": "pm-004",
+    "domain": "product-management",
+    "tags": ["implicit-ask", "single-ask", "all-answered"],
+    "person": "Ben",
+    "message": "The exec review is Thursday and I still don't have your section of the deck. I need it by Wednesday noon at the latest.",
+    "draft": "You'll have it by Wednesday morning. Slides 8 to 14, same template as last time.",
+    "asks": [
+      { "q": "I need it by Wednesday noon at the latest.", "missed": false }
+    ],
+    "note": "Same message, committed reply."
+  },
+  {
+    "id": "pm-005",
+    "domain": "product-management",
+    "tags": ["none-asked", "long-message"],
+    "person": "Ben",
+    "message": "Notes from today's roadmap review, for the record. We agreed to ship search in Q3 and move the billing rework to Q4. Marketing will own the launch page. The design team flagged that the icon set needs a refresh, which we'll fund from the Q3 polish budget. Nothing else changed.",
+    "draft": "Thanks for writing this up. Matches my notes.",
+    "asks": [],
+    "note": "Meeting notes with no ask."
+  }
+]

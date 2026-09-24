@@ -1,0 +1,50 @@
+[
+  {
+    "id": "hosp-001",
+    "domain": "hospitality-services",
+    "tags": ["multi-ask", "partial", "numbers-dates"],
+    "person": "The Fig Tree",
+    "message": "Thank you for your booking for 8 on Saturday at 19:30. Would you like the set menu or a la carte? Do any guests have allergies? And could you confirm by Thursday, as we release unconfirmed tables.",
+    "draft": "Confirmed, thank you. A la carte please.",
+    "asks": [
+      { "q": "Would you like the set menu or a la carte?", "missed": false },
+      { "q": "Do any guests have allergies?", "missed": true },
+      { "q": "And could you confirm by Thursday, as we release unconfirmed tables.", "missed": false }
+    ],
+    "note": "Allergies not addressed."
+  },
+  {
+    "id": "hosp-002",
+    "domain": "hospitality-services",
+    "tags": ["single-ask", "all-answered", "yes-no"],
+    "person": "The Fig Tree",
+    "message": "Do any guests have allergies?",
+    "draft": "One nut allergy, otherwise none.",
+    "asks": [
+      { "q": "Do any guests have allergies?", "missed": false }
+    ],
+    "note": "Answered."
+  },
+  {
+    "id": "hosp-003",
+    "domain": "hospitality-services",
+    "tags": ["single-ask", "mentioned-not-answered"],
+    "person": "Nina",
+    "message": "Your cleaner is scheduled for Fridays at 10. Would you like to switch to fortnightly, or keep it weekly?",
+    "draft": "Thanks Nina, the cleaning has been great. I'll think about weekly versus fortnightly.",
+    "asks": [
+      { "q": "Would you like to switch to fortnightly, or keep it weekly?", "missed": true }
+    ],
+    "note": "Thinking about it is not a choice."
+  },
+  {
+    "id": "hosp-004",
+    "domain": "hospitality-services",
+    "tags": ["none-asked"],
+    "person": "Nina",
+    "message": "Reminder that Friday is a bank holiday, so your clean will be on Thursday at 10 instead.",
+    "draft": "Thanks for letting me know.",
+    "asks": [],
+    "note": "Schedule notice."
+  }
+]

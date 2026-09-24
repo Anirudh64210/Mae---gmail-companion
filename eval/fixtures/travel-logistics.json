@@ -1,0 +1,50 @@
+[
+  {
+    "id": "travel-001",
+    "domain": "travel-logistics",
+    "tags": ["multi-ask", "partial", "numbers-dates"],
+    "person": "Ingrid",
+    "message": "Booking your Berlin trip. Do you want the 07:15 or the 10:40 flight on the 3rd? Aisle or window? And should I book the hotel near the office or near the station?",
+    "draft": "10:40 please, and near the office.",
+    "asks": [
+      { "q": "Do you want the 07:15 or the 10:40 flight on the 3rd?", "missed": false },
+      { "q": "Aisle or window?", "missed": true },
+      { "q": "And should I book the hotel near the office or near the station?", "missed": false }
+    ],
+    "note": "Seat preference missing."
+  },
+  {
+    "id": "travel-002",
+    "domain": "travel-logistics",
+    "tags": ["one-liner", "single-ask", "all-answered"],
+    "person": "Ingrid",
+    "message": "Aisle or window?",
+    "draft": "Window.",
+    "asks": [
+      { "q": "Aisle or window?", "missed": false }
+    ],
+    "note": "Two-word question, one-word answer."
+  },
+  {
+    "id": "travel-003",
+    "domain": "travel-logistics",
+    "tags": ["single-ask", "polite-request-no-qmark", "mentioned-not-answered"],
+    "person": "Ingrid",
+    "message": "Your passport number is needed to complete the booking, please send it over when you can.",
+    "draft": "Thanks Ingrid. I'd rather not send passport details by email, is there a secure form?",
+    "asks": [
+      { "q": "Your passport number is needed to complete the booking, please send it over when you can.", "missed": false }
+    ],
+    "note": "Declines the channel and asks for an alternative. That addresses the request."
+  },
+  {
+    "id": "travel-004",
+    "domain": "travel-logistics",
+    "tags": ["none-asked"],
+    "person": "Ingrid",
+    "message": "All booked. Flight BA982 on the 3rd at 10:40, hotel Motel One Alexanderplatz, confirmation numbers attached. Safe travels.",
+    "draft": "Brilliant, thank you.",
+    "asks": [],
+    "note": "Booking confirmation."
+  }
+]

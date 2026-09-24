@@ -1,0 +1,50 @@
+[
+  {
+    "id": "edu-001",
+    "domain": "education",
+    "tags": ["multi-ask", "partial", "numbers-dates"],
+    "person": "Ms Alvarez",
+    "message": "Hello, a few things about the field trip on the 22nd. Will Aanya be attending? Can you return the signed permission slip by Monday? And are you able to volunteer as a chaperone, we still need two more parents.",
+    "draft": "Hi Ms Alvarez, yes Aanya will be there and I'll send the slip in with her tomorrow.",
+    "asks": [
+      { "q": "Will Aanya be attending?", "missed": false },
+      { "q": "Can you return the signed permission slip by Monday?", "missed": false },
+      { "q": "And are you able to volunteer as a chaperone, we still need two more parents.", "missed": true }
+    ],
+    "note": "Chaperone question unanswered."
+  },
+  {
+    "id": "edu-002",
+    "domain": "education",
+    "tags": ["single-ask", "decline-is-answer"],
+    "person": "Ms Alvarez",
+    "message": "Are you able to volunteer as a chaperone on the 22nd?",
+    "draft": "Unfortunately I can't make the 22nd, I have a work commitment. Happy to help with the next one.",
+    "asks": [
+      { "q": "Are you able to volunteer as a chaperone on the 22nd?", "missed": false }
+    ],
+    "note": "A no with a reason."
+  },
+  {
+    "id": "edu-003",
+    "domain": "education",
+    "tags": ["single-ask", "embedded-question", "mentioned-not-answered"],
+    "person": "Prof Lindqvist",
+    "message": "Your essay draft is strong on evidence but the argument wanders in section 3. I'd like to know which of the two theses you intend to keep, since the conclusion currently supports both. Office hours are Wednesday 2 to 4 if you want to talk it through.",
+    "draft": "Thank you for the detailed feedback. I agree section 3 needs tightening and I'll rework the conclusion. I may come to office hours on Wednesday.",
+    "asks": [
+      { "q": "I'd like to know which of the two theses you intend to keep, since the conclusion currently supports both.", "missed": true }
+    ],
+    "note": "The thesis choice is the ask, and it's not made."
+  },
+  {
+    "id": "edu-004",
+    "domain": "education",
+    "tags": ["none-asked"],
+    "person": "Prof Lindqvist",
+    "message": "Grades for the midterm are posted. The class average was 74. Well done, you scored 88.",
+    "draft": "Thank you, that's a relief.",
+    "asks": [],
+    "note": "Grade notice."
+  }
+]

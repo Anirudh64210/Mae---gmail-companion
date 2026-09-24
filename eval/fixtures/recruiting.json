@@ -1,0 +1,62 @@
+[
+  {
+    "id": "recruit-001",
+    "domain": "recruiting",
+    "tags": ["multi-ask", "partial", "choice-question"],
+    "person": "Hannah",
+    "message": "Thanks for applying. Would you be available for a 30 minute call next Tuesday or Wednesday? Also, what is your current notice period, and are you open to a hybrid arrangement?",
+    "draft": "Hi Hannah, thanks for reaching out. Wednesday works well for me, any time after 11. My notice period is four weeks.",
+    "asks": [
+      { "q": "Would you be available for a 30 minute call next Tuesday or Wednesday?", "missed": false },
+      { "q": "Also, what is your current notice period, and are you open to a hybrid arrangement?", "missed": true }
+    ],
+    "note": "One sentence holds two asks. Notice period is answered, hybrid is not. The sentence counts as missed."
+  },
+  {
+    "id": "recruit-002",
+    "domain": "recruiting",
+    "tags": ["single-ask", "decline-is-answer"],
+    "person": "Hannah",
+    "message": "Could you share two references we can contact this week?",
+    "draft": "I'd rather hold off on references until we're at the offer stage, if that's alright with you.",
+    "asks": [
+      { "q": "Could you share two references we can contact this week?", "missed": false }
+    ],
+    "note": "A polite no is still an answer."
+  },
+  {
+    "id": "recruit-003",
+    "domain": "recruiting",
+    "tags": ["none-asked", "meeting-invite"],
+    "person": "Hannah",
+    "message": "Invitation: Interview with Alex, Thu 21 May, 14:00 to 14:45. Video link is in the calendar event. Looking forward to it.",
+    "draft": "Looking forward to it too, see you Thursday.",
+    "asks": [],
+    "note": "A calendar note with nothing to answer."
+  },
+  {
+    "id": "recruit-004",
+    "domain": "recruiting",
+    "tags": ["single-ask", "numbers-dates", "mentioned-not-answered"],
+    "person": "Marcus",
+    "message": "Congrats again on the offer. Before we finalise, what salary figure were you expecting? We need it for the paperwork by Friday.",
+    "draft": "Thank you, I'm really excited. Salary is something I'd love to discuss. Friday is fine for paperwork.",
+    "asks": [
+      { "q": "Before we finalise, what salary figure were you expecting?", "missed": true }
+    ],
+    "note": "Salary is mentioned but no figure is given."
+  },
+  {
+    "id": "recruit-005",
+    "domain": "recruiting",
+    "tags": ["long-message", "multi-ask", "all-answered", "embedded-question"],
+    "person": "Marcus",
+    "message": "Hi Alex, I wanted to give you a full picture of the role before Thursday. The team is eight people across two time zones, with a heavy focus on the mobile app. We ship every two weeks and do a retro after each release. One thing I'm curious about is whether you've led hiring before, since this role will own two open reqs. The other thing I'd like to understand is how you feel about being on call one week in six. Anyway, that's the shape of it.",
+    "draft": "Thanks Marcus, that's helpful. I hired four engineers in my last role, including running the loop end to end, so owning two reqs is comfortable. On call one week in six is fine, I've been on a similar rota for two years.",
+    "asks": [
+      { "q": "One thing I'm curious about is whether you've led hiring before, since this role will own two open reqs.", "missed": false },
+      { "q": "The other thing I'd like to understand is how you feel about being on call one week in six.", "missed": false }
+    ],
+    "note": "Asks buried in a long message, phrased as statements. Both answered."
+  }
+]

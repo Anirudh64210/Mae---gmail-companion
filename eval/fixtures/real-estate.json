@@ -1,0 +1,51 @@
+[
+  {
+    "id": "estate-001",
+    "domain": "real-estate",
+    "tags": ["multi-ask", "partial", "numbers-dates"],
+    "person": "Karen",
+    "message": "The landlord has accepted your offer at $2,150 a month. Can you send proof of income and two forms of ID by Friday? Also, would you like to start the lease on the 1st or the 15th?",
+    "draft": "That's great news. I've attached my last three payslips and my passport and driving licence.",
+    "asks": [
+      { "q": "Can you send proof of income and two forms of ID by Friday?", "missed": false },
+      { "q": "Also, would you like to start the lease on the 1st or the 15th?", "missed": true }
+    ],
+    "note": "Documents sent, start date not chosen."
+  },
+  {
+    "id": "estate-002",
+    "domain": "real-estate",
+    "tags": ["single-ask", "all-answered", "choice-question"],
+    "person": "Karen",
+    "message": "Would you like to start the lease on the 1st or the 15th?",
+    "draft": "The 1st, please.",
+    "asks": [
+      { "q": "Would you like to start the lease on the 1st or the 15th?", "missed": false }
+    ],
+    "note": "Choice made."
+  },
+  {
+    "id": "estate-003",
+    "domain": "real-estate",
+    "tags": ["single-ask", "polite-request-no-qmark", "mentioned-not-answered"],
+    "person": "Dev",
+    "message": "The boiler inspection is booked for Tuesday between 9 and 12. Please let me know if someone will be home, otherwise I'll use the spare key.",
+    "draft": "Thanks for arranging the inspection. Tuesday morning is a busy one for me.",
+    "asks": [
+      { "q": "Please let me know if someone will be home, otherwise I'll use the spare key.", "missed": true }
+    ],
+    "note": "Neither confirms someone will be home nor says to use the key."
+  },
+  {
+    "id": "estate-004",
+    "domain": "real-estate",
+    "tags": ["single-ask", "all-answered", "paraphrased-answer"],
+    "person": "Dev",
+    "message": "Please let me know if someone will be home on Tuesday, otherwise I'll use the spare key.",
+    "draft": "Go ahead with the key, I'll be at work.",
+    "asks": [
+      { "q": "Please let me know if someone will be home on Tuesday, otherwise I'll use the spare key.", "missed": false }
+    ],
+    "note": "Answered by choosing the alternative."
+  }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "id": "hr-001",
+    "domain": "hr-people",
+    "tags": ["multi-ask", "partial", "numbers-dates"],
+    "person": "Fatima",
+    "message": "Hi, for your leave request: which dates exactly, and who will cover your on-call shift on the 18th? Please also update the team calendar once it's approved.",
+    "draft": "The dates are 15 to 22 June inclusive. I'll update the calendar as soon as you approve it.",
+    "asks": [
+      { "q": "Hi, for your leave request: which dates exactly, and who will cover your on-call shift on the 18th?", "missed": true },
+      { "q": "Please also update the team calendar once it's approved.", "missed": false }
+    ],
+    "note": "Dates given, cover not named."
+  },
+  {
+    "id": "hr-002",
+    "domain": "hr-people",
+    "tags": ["single-ask", "all-answered"],
+    "person": "Fatima",
+    "message": "Who will cover your on-call shift on the 18th?",
+    "draft": "Sam has agreed to take it.",
+    "asks": [
+      { "q": "Who will cover your on-call shift on the 18th?", "missed": false }
+    ],
+    "note": "A name is given."
+  },
+  {
+    "id": "hr-003",
+    "domain": "hr-people",
+    "tags": ["none-asked", "ooo"],
+    "person": "Fatima",
+    "message": "I'm out of the office until 2 June with limited access to email. For urgent matters, contact people-team@example.com. Did you need something before then? I'll reply when I'm back.",
+    "draft": "No rush, it can wait until you're back.",
+    "asks": [],
+    "note": "An auto-reply. Its question is a courtesy, not something to answer."
+  },
+  {
+    "id": "hr-004",
+    "domain": "hr-people",
+    "tags": ["single-ask", "polite-request-no-qmark", "all-answered"],
+    "person": "Leo",
+    "message": "Reminder: please complete the annual security training by the end of the month. It takes about 20 minutes.",
+    "draft": "Done this morning, certificate attached.",
+    "asks": [
+      { "q": "Reminder: please complete the annual security training by the end of the month.", "missed": false }
+    ],
+    "note": "Request fulfilled."
+  },
+  {
+    "id": "hr-005",
+    "domain": "hr-people",
+    "tags": ["single-ask", "mentioned-not-answered"],
+    "person": "Leo",
+    "message": "For the performance cycle, would you prefer your review meeting in the morning or the afternoon?",
+    "draft": "Thanks Leo. Happy to do the review whenever suits, I'm flexible on the morning or afternoon question.",
+    "asks": [
+      { "q": "For the performance cycle, would you prefer your review meeting in the morning or the afternoon?", "missed": false }
+    ],
+    "note": "'I'm flexible' is a real answer to a preference question, even though it picks neither."
+  }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "id": "health-001",
+    "domain": "healthcare-admin",
+    "tags": ["multi-ask", "partial"],
+    "person": "Dr Patel",
+    "message": "Following your appointment, could you confirm which pharmacy you'd like the prescription sent to? Also, are you still taking the blood pressure medication we discussed in March?",
+    "draft": "Boots on the High Street, please.",
+    "asks": [
+      { "q": "Following your appointment, could you confirm which pharmacy you'd like the prescription sent to?", "missed": false },
+      { "q": "Also, are you still taking the blood pressure medication we discussed in March?", "missed": true }
+    ],
+    "note": "Pharmacy named, medication question ignored."
+  },
+  {
+    "id": "health-002",
+    "domain": "healthcare-admin",
+    "tags": ["single-ask", "all-answered", "choice-question"],
+    "person": "Reception",
+    "message": "We have slots on Monday at 9:40 and Thursday at 15:10 for your follow-up. Which would you prefer?",
+    "draft": "Thursday at 15:10 works, thank you.",
+    "asks": [
+      { "q": "Which would you prefer?", "missed": false }
+    ],
+    "note": "Slot picked."
+  },
+  {
+    "id": "health-003",
+    "domain": "healthcare-admin",
+    "tags": ["single-ask", "polite-request-no-qmark", "deferral"],
+    "person": "Reception",
+    "message": "Please bring a photo ID and your insurance card to your appointment, and arrive 15 minutes early to complete the intake form.",
+    "draft": "Thanks for the reminder. Is parking available on site?",
+    "asks": [
+      { "q": "Please bring a photo ID and your insurance card to your appointment, and arrive 15 minutes early to complete the intake form.", "missed": false }
+    ],
+    "note": "Instructions for the day of the visit, not something that needs a reply. A thanks addresses it. Asking a new question does not create a miss."
+  },
+  {
+    "id": "health-004",
+    "domain": "healthcare-admin",
+    "tags": ["none-asked"],
+    "person": "Reception",
+    "message": "Your test results are back and are all within normal range. No further action is needed.",
+    "draft": "That's a relief, thank you for letting me know.",
+    "asks": [],
+    "note": "Results notice."
+  }
+]

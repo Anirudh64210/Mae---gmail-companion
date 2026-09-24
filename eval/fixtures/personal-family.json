@@ -1,0 +1,61 @@
+[
+  {
+    "id": "personal-001",
+    "domain": "personal-family",
+    "tags": ["multi-ask", "partial"],
+    "person": "Mum",
+    "message": "Are you coming for Sunday lunch? Dad wants to know if he should pick you up from the station, and whether you're bringing Sara.",
+    "draft": "Yes, I'll be there around 12. Sara's coming too.",
+    "asks": [
+      { "q": "Are you coming for Sunday lunch?", "missed": false },
+      { "q": "Dad wants to know if he should pick you up from the station, and whether you're bringing Sara.", "missed": true }
+    ],
+    "note": "Sara is confirmed, the pickup is not. The sentence is partly unanswered."
+  },
+  {
+    "id": "personal-002",
+    "domain": "personal-family",
+    "tags": ["single-ask", "all-answered", "paraphrased-answer"],
+    "person": "Mum",
+    "message": "Should Dad pick you up from the station?",
+    "draft": "No need, I'm driving.",
+    "asks": [
+      { "q": "Should Dad pick you up from the station?", "missed": false }
+    ],
+    "note": "Answered."
+  },
+  {
+    "id": "personal-003",
+    "domain": "personal-family",
+    "tags": ["single-ask", "mentioned-not-answered"],
+    "person": "Nikhil",
+    "message": "Mate, what time does the game start on Saturday? I want to book a table nearby.",
+    "draft": "Saturday's going to be great. I'll book the table if you like, that place by the ground does good food.",
+    "asks": [
+      { "q": "Mate, what time does the game start on Saturday?", "missed": true }
+    ],
+    "note": "No kick-off time."
+  },
+  {
+    "id": "personal-004",
+    "domain": "personal-family",
+    "tags": ["none-asked", "rhetorical"],
+    "person": "Nikhil",
+    "message": "Did you see that goal last night?! Unbelievable. Anyway, see you Saturday.",
+    "draft": "Incredible. See you then.",
+    "asks": [],
+    "note": "Rhetorical excitement, not an ask."
+  },
+  {
+    "id": "personal-005",
+    "domain": "personal-family",
+    "tags": ["single-ask", "polite-request-no-qmark", "all-answered"],
+    "person": "Sara",
+    "message": "Don't forget to pick up milk and something for dinner on your way home.",
+    "draft": "On it, thinking pasta.",
+    "asks": [
+      { "q": "Don't forget to pick up milk and something for dinner on your way home.", "missed": false }
+    ],
+    "note": "A reminder acknowledged."
+  }
+]

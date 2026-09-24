@@ -1,0 +1,49 @@
+[
+  {
+    "id": "gov-001",
+    "domain": "government-permits",
+    "tags": ["multi-ask", "partial", "polite-request-no-qmark"],
+    "person": "Planning Office",
+    "message": "Re application 2026/0412. Your submission is incomplete. Please provide a site plan at 1:200 scale and confirm whether the extension will exceed 4 metres in depth. We also require the neighbour consultation form, signed by both adjoining owners.",
+    "draft": "Site plan at 1:200 attached. The extension is 3.6 metres deep, so under 4.",
+    "asks": [
+      { "q": "Please provide a site plan at 1:200 scale and confirm whether the extension will exceed 4 metres in depth.", "missed": false },
+      { "q": "We also require the neighbour consultation form, signed by both adjoining owners.", "missed": true }
+    ],
+    "note": "Neighbour form not addressed."
+  },
+  {
+    "id": "gov-002",
+    "domain": "government-permits",
+    "tags": ["single-ask", "deferral"],
+    "person": "Planning Office",
+    "message": "We require the neighbour consultation form, signed by both adjoining owners, within 14 days.",
+    "draft": "Noted. One neighbour is away until next month, so I'm not sure I can get both signatures in time.",
+    "asks": [
+      { "q": "We require the neighbour consultation form, signed by both adjoining owners, within 14 days.", "missed": false }
+    ],
+    "note": "Explains a problem meeting the requirement. That is a response to it, not silence."
+  },
+  {
+    "id": "gov-003",
+    "domain": "government-permits",
+    "tags": ["single-ask", "all-answered", "yes-no"],
+    "person": "DVLA",
+    "message": "To complete your vehicle tax renewal, please confirm the vehicle is still kept at the registered address.",
+    "draft": "Confirmed, same address.",
+    "asks": [
+      { "q": "To complete your vehicle tax renewal, please confirm the vehicle is still kept at the registered address.", "missed": false }
+    ],
+    "note": "Confirmed."
+  },
+  {
+    "id": "gov-004",
+    "domain": "government-permits",
+    "tags": ["none-asked"],
+    "person": "Planning Office",
+    "message": "Application 2026/0412 has been approved with the standard conditions. The decision notice is attached.",
+    "draft": "Thank you for the update.",
+    "asks": [],
+    "note": "Decision notice."
+  }
+]
