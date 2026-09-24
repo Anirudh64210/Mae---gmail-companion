@@ -1,8 +1,18 @@
 # Did You Actually Answer?
 
-A small Chrome extension for Gmail. When you press Send on a reply, Mae, a pixel mail carrier who lives beside the Send button, checks whether your reply answers everything you were asked. If something was missed, she looks unimpressed, the Send button shakes once, and a one-line pill names the question. Otherwise the email just sends and you never see her.
+Mae is a Chrome extension for Gmail that checks your reply when you press Send and tells you if you left a question unanswered.
 
-Built by ExpandRange. Free and open source: https://github.com/Anirudh64210/Mae---gmail-companion
+## The problem
+
+Quick replies are common, and people often answer two of the three things they were asked. The sender then has to write again, and everything slips by a day. Nobody does this on purpose. A loaded email arrives, you answer the part you have an answer for, and the rest falls out of your head between reading and sending.
+
+## What Mae does
+
+Mae is a small pixel mail carrier who lives beside Gmail's Send button. When you press Send on a reply, she checks whether your draft addresses everything you were asked. If a question went unanswered, she looks unimpressed, the Send button shakes once, the question is underlined in the thread, and a one-line note names it. Click Answer to fix it, or Send anyway to send as is. If nothing was missed, the email just sends and you never see her.
+
+Scoring comes from TypeSafe's Jev, a typed yes/no model with confidence scores, behind a small relay you run yourself. Chrome and Gmail only for now.
+
+Built by ExpandRange. Free and open source, repo only: https://github.com/Anirudh64210/Mae---gmail-companion
 
 ## How it works
 
