@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
-const { score, check } = require('../../extension/content/fake-checker.js');
+const { score, check } = require('../../extension/shared/stand-in.js');
 const { decide } = require('../../extension/content/decide.js');
 
 const S = [

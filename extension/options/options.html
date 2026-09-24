@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Did You Actually Answer</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main>
+    <header>
+      <img src="../icons/mae-48.png" alt="" width="24" height="24">
+      <h1>Did You Actually Answer</h1>
+    </header>
+
+    <section>
+      <h2>Checking</h2>
+      <label class="row">
+        <input type="checkbox" id="enabled">
+        <span><b>On</b><small>Mae checks each reply when you press Send. Off means replies send without a check.</small></span>
+      </label>
+      <label class="row">
+        <input type="checkbox" id="sound">
+        <span><b>Sound and vibration</b><small>A soft tick when something is missed, a short chime when the envelope seals.</small></span>
+      </label>
+    </section>
+
+    <section>
+      <h2>Relay</h2>
+      <p>The relay is the small server that scores your reply and returns numbers. Leave this empty to use the built-in word matcher, which runs on this machine and makes no network calls. Point it at your own relay to use Jev.</p>
+      <div class="field">
+        <input type="url" id="relayUrl" placeholder="https://" spellcheck="false" autocomplete="off">
+        <button id="saveRelay" type="button">Save</button>
+      </div>
+      <p id="relayStatus" class="status" role="status"></p>
+    </section>
+
+    <section>
+      <h2>Last check</h2>
+      <p>Exactly what was sent for the most recent check, after trimming and redaction. Kept only until the browser closes.</p>
+      <div id="lastCheck" class="last"></div>
+    </section>
+
+    <section>
+      <h2>Counters</h2>
+      <p>The only numbers the extension keeps. No text, names, addresses or subjects.</p>
+      <dl class="counters">
+        <div><dt>Checks</dt><dd id="c_checks">0</dd></div>
+        <div><dt>Flags</dt><dd id="c_flags">0</dd></div>
+        <div><dt>Fixed</dt><dd id="c_fixed">0</dd></div>
+        <div><dt>Sent anyway</dt><dd id="c_sentanyway">0</dd></div>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Privacy</h2>
+      <ul>
+        <li>Nothing is read or sent before you press Send.</li>
+        <li>Only the trimmed, redacted incoming message and draft leave this device, once per send attempt. Emails, links, phone numbers and long ID numbers are replaced before that.</li>
+        <li>The relay keeps nothing and returns numbers only.</li>
+        <li>The extension holds no API key and no account.</li>
+      </ul>
+      <p id="privacyLink"></p>
+    </section>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -54,8 +54,9 @@ Details and the threat model are in `docs/SECURITY.md`.
 
 ## Status
 
-- Done: Gmail integration, Mae and the pill, extraction and redaction, eval set, security pass.
-- Next: the relay and the Jev checker, options page, privacy policy page, store listing.
+- Done: Gmail integration, Mae and the pill, extraction and redaction, eval set, security pass, options page, relay (see `relay/README.md`).
+- Waiting on: a Jev API key. The Jev provider is written from the brief and must be verified against the SDK before first use.
+- Next: privacy policy page, store listing, hosted relay deployment.
 
 ## License
 

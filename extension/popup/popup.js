@@ -19,3 +19,8 @@ chrome.storage.local.get('enabled').then(({ enabled = true }) => {
     render(next);
   });
 });
+
+document.getElementById('options').addEventListener('click', (e) => {
+  e.preventDefault();
+  chrome.runtime.openOptionsPage();
+});

@@ -27,7 +27,7 @@ const checker = which === 'relay'
       if (!r.ok) throw new Error(`relay ${r.status}`);
       return r.json();
     } }
-  : require('../extension/content/fake-checker.js');
+  : require('../extension/shared/stand-in.js');
 
 const fixtures = fs.readdirSync(path.join(here, 'fixtures')).filter((f) => f.endsWith('.json')).sort()
   .flatMap((f) => JSON.parse(fs.readFileSync(path.join(here, 'fixtures', f), 'utf8')));

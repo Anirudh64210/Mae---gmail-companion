@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Did You Actually Answer?",
   "short_name": "DYAA",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Mae checks whether your Gmail reply answers everything you were asked, right when you press Send.",
   "author": "ExpandRange",
   "minimum_chrome_version": "105",
@@ -27,6 +27,7 @@
       "128": "icons/mae-128.png"
     }
   },
+  "options_ui": { "page": "options/options.html", "open_in_tab": true },
   "background": { "service_worker": "background/service-worker.js" },
   "content_scripts": [
     {
@@ -36,7 +37,7 @@
         "content/nudge.js",
         "content/extract.js",
         "content/decide.js",
-        "content/fake-checker.js",
+        "content/checker.js",
         "content/gmail.js"
       ],
       "run_at": "document_idle"
