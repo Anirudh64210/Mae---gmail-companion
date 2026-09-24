@@ -70,7 +70,7 @@ One line, floating above the toolbar, right-aligned to Send, tail pointing at Ma
 - 2+ missed: **2 of Maya's questions** are unanswered
 - Buttons: `Answer`, `Send anyway`
 
-Copy rules for anything new (options page, store listing, privacy notice): plain words, short sentences, no em dashes or en dashes, no exclamation marks, no emoji, never guilt ("you forgot", "oops").
+Copy rules for anything new (options page, privacy notice): plain words, short sentences, no em dashes or en dashes, no exclamation marks, no emoji, never guilt ("you forgot", "oops").
 
 ### Thread highlight
 

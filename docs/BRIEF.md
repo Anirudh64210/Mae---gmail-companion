@@ -109,7 +109,7 @@ const res = await client.systemOne({
 3. **Extraction.** `extract.js` with unit tests for trimming, redaction and sentence ranges.
 4. **Relay + Jev.** Worker deployed, batched call, 800 ms fail-open, zero-retention path confirmed.
 5. **Eval + tuning.** Fixtures, eval script, thresholds tuned to the launch bar.
-6. **Polish + store prep.** Options page, counters, privacy policy page, Chrome Web Store listing text, final screenshot review.
+6. **Polish.** Options page, counters, privacy policy page, final screenshot review. Distribution is this repository only, with no hosted relay.
 
 ## 10. Definition of done for any task
 

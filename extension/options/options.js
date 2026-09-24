@@ -1,6 +1,6 @@
 // Options page: on or off, sound, relay URL, the last check, counters, privacy.
 // Everything shown here comes from extension storage. Text is inserted with textContent only.
-const PRIVACY_URL = '';   // set to the public privacy policy page once it exists
+const PRIVACY_URL = 'https://github.com/Anirudh64210/Mae---gmail-companion/blob/main/PRIVACY.md';
 const { askMin, ansMax } = { askMin: 0.85, ansMax: 0.20 };   // same thresholds as content/decide.js CONFIG
 
 const $ = (id) => document.getElementById(id);

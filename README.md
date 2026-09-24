@@ -2,7 +2,7 @@
 
 A small Chrome extension for Gmail. When you press Send on a reply, Mae, a pixel mail carrier who lives beside the Send button, checks whether your reply answers everything you were asked. If something was missed, she looks unimpressed, the Send button shakes once, and a one-line pill names the question. Otherwise the email just sends and you never see her.
 
-Built by [ExpandRange](https://expandrange.com). Free and open source.
+Built by ExpandRange. Free and open source: https://github.com/Anirudh64210/Mae---gmail-companion
 
 ## How it works
 
@@ -16,13 +16,15 @@ The intended checker is Jev, TypeSafe AI's typed yes/no model, behind a small st
 
 ## Try it
 
-Requires Chrome.
+This is a repo-only project. You install it from this repo, and there is no hosted server. You run it yourself.
 
 1. Clone the repo.
 2. Open `chrome://extensions`, turn on Developer mode, click Load unpacked, and pick the `extension` folder.
 3. Open Gmail and reply to an email that asks you a few things. Leave one unanswered and press Send.
 
-Type `dyaa:miss`, `dyaa:clean`, `dyaa:timeout` or `dyaa:error` anywhere in a draft to force an outcome while the stand-in checker is in use.
+Out of the box the check uses the built-in word matcher, which runs on your machine with no network calls. It is good enough to see Mae work, not good enough to trust (see `npm run eval`). Type `dyaa:miss`, `dyaa:clean`, `dyaa:timeout` or `dyaa:error` anywhere in a draft to force an outcome.
+
+To use Jev, run your own relay with your own TypeSafe key (`relay/README.md`, about five minutes on a free Cloudflare account or locally with `npm run relay`), then paste its address into the extension's options page. Your key stays on your relay; the extension never holds it.
 
 ## Develop
 
@@ -50,13 +52,13 @@ Layout:
 - The extension holds no API key. The relay holds it, server side, and returns numbers only.
 - Stored locally: on or off, sound, whether the intro was shown, and four anonymous counters. Never text, names or subjects.
 
-Details and the threat model are in `docs/SECURITY.md`.
+The full policy is in `PRIVACY.md`. The threat model is in `docs/SECURITY.md`.
 
 ## Status
 
 - Done: Gmail integration, Mae and the pill, extraction and redaction, eval set, security pass, options page, relay (see `relay/README.md`).
 - Waiting on: a Jev API key. The Jev provider is written from the brief and must be verified against the SDK before first use.
-- Next: privacy policy page, store listing, hosted relay deployment.
+- Next: verify the Jev provider and tune thresholds once a key is available.
 
 ## License
 
