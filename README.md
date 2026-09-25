@@ -1,6 +1,11 @@
 # Did You Actually Answer?
 
-Mae is a Chrome extension for Gmail that checks your reply when you press Send and tells you if you left a question unanswered.
+<p align="center">
+  <img src="docs/images/mae-wave.png" width="80" alt="Mae, a pixel mail carrier, waving">
+</p>
+<p align="center"><b>Hi, I'm Mae.</b> I only show up if a question gets missed.</p>
+
+Mae is a Chrome extension for Gmail that checks your reply when you press Send and tells you if you left a question unanswered. Just a fun little idea.
 
 ## Why this exists
 
